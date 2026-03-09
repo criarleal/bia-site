@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beatriz Leal | Beauty & Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
-            --rose-logo: #D4888C; 
+            --rose-logo: #D4888C;
             --gold-accent: #C5A059;
             --dark-bg: #1A1A1A;
         }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #F9F7F2;
@@ -20,10 +24,15 @@
             opacity: 0;
             transition: opacity 1.5s ease;
         }
+
         body.loaded {
             opacity: 1;
         }
-        h1, h2, h3, .serif {
+
+        h1,
+        h2,
+        h3,
+        .serif {
             font-family: 'Playfair Display', serif;
         }
 
@@ -36,20 +45,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #000; /* Fundo preto para evitar flash branco no load */
+            background-color: #000;
+            /* Fundo preto para evitar flash branco no load */
         }
 
         .hero-overlay {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.8) 100%);
             z-index: 2;
         }
 
         .hero-media {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; /* Faz o vídeo cobrir tudo sem esticar */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Faz o vídeo cobrir tudo sem esticar */
             z-index: 1;
             /* Removida a animação de zoom para não conflitar com o movimento do vídeo */
         }
@@ -68,18 +85,23 @@
             position: relative;
             overflow: hidden;
         }
+
         .rose-button::after {
             content: '';
             position: absolute;
-            top: 50%; left: 50%;
-            width: 300%; height: 300%;
-            background: rgba(255,255,255,0.1);
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.1);
             transition: all 0.75s ease;
             transform: translate(-50%, -50%) rotate(45deg) scale(0);
         }
+
         .rose-button:hover::after {
             transform: translate(-50%, -50%) rotate(45deg) scale(1);
         }
+
         .rose-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(212, 136, 140, 0.3);
@@ -90,11 +112,12 @@
             background: #FFF;
             border-radius: 15px;
             transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border: 1px solid rgba(0,0,0,0.03);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
+
         .card-service:hover {
             transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
         }
 
         /* Imagem Sobre - Moldura Dinâmica */
@@ -103,16 +126,24 @@
             width: 100%;
             max-width: 400px;
         }
+
         .profile-img-container::before {
             content: '';
             position: absolute;
-            top: 30px; left: 30px; right: -20px; bottom: -20px;
+            top: 30px;
+            left: 30px;
+            right: -20px;
+            bottom: -20px;
             border: 1px solid var(--rose-logo);
             z-index: 0;
             transition: all 0.8s ease;
         }
+
         .profile-img-container:hover::before {
-            top: 15px; left: 15px; right: -10px; bottom: -10px;
+            top: 15px;
+            left: 15px;
+            right: -10px;
+            bottom: -10px;
         }
 
         section {
@@ -120,6 +151,7 @@
         }
     </style>
 </head>
+
 <body class="antialiased">
 
     <header class="fixed w-full z-50 transition-all duration-700" id="main-header">
@@ -129,26 +161,33 @@
                     BEATRIZ LEAL<span class="text-[#D4888C]">.</span>
                 </div>
             </div>
-            
+
             <div class="hidden lg:flex space-x-10 text-[11px] uppercase tracking-[0.4em] font-semibold text-white/80">
                 <a href="#inicio" class="hover:text-[#D4888C] transition-all duration-300">Início</a>
                 <a href="#servicos" class="hover:text-[#D4888C] transition-all duration-300">Procedimentos</a>
                 <a href="#sobre" class="hover:text-[#D4888C] transition-all duration-300">Sobre</a>
                 <a href="#contato" class="hover:text-[#D4888C] transition-all duration-300">Contato</a>
             </div>
-            
+
             <div class="flex items-center gap-4" data-aos="fade-left" data-aos-duration="1000">
-                <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank" class="rose-button text-white px-8 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hidden sm:block">Agendar</a>
+                <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
+                    class="rose-button text-white px-8 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hidden sm:block">Agendar</a>
                 <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
                 </button>
             </div>
         </nav>
     </header>
 
-    <div id="mobile-overlay" class="fixed inset-0 bg-black/98 z-[60] flex flex-col items-center justify-center space-y-10 text-white uppercase tracking-[0.5em] text-sm hidden">
+    <div id="mobile-overlay"
+        class="fixed inset-0 bg-black/98 z-[60] flex flex-col items-center justify-center space-y-10 text-white uppercase tracking-[0.5em] text-sm hidden">
         <button id="menu-close" class="absolute top-8 right-8 text-white">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
         </button>
         <a href="#inicio" class="nav-link hover:text-[#D4888C]">Início</a>
         <a href="#servicos" class="nav-link hover:text-[#D4888C]">Procedimentos</a>
@@ -158,20 +197,30 @@
 
     <section id="inicio" class="hero-container">
         <video autoplay muted loop playsinline class="hero-media">
-            <source src="https://c4s9.scdn.st/aa1b2559-1c1b-44ea-a174-3a2f861acb8a.mp4?n=grok-video-8d6c37d6-1d0c-47ff-9eeb-bcc413cc4ae7.mp4" type="video/mp4">
+            <source
+                src="https://cache1.filester.me/v/62663332653730302d373939632d343562382d613531662d6134623138383564356163367c313737333033393433327c323830343a3766343a333233643a653339303a646330623a343335313a326365643a32323431.a36e04179ead92ea9d8a30e3c8fb2b6fc85b796234080aeef6dfa7a2c5c66052"
+                type="video/mp4">
             Seu navegador não suporta vídeos.
         </video>
-        
+
         <div class="hero-overlay"></div>
 
         <div class="hero-content max-w-5xl px-6">
             <div data-aos="fade-up" data-aos-duration="1500">
-                <span class="inline-block mb-8 px-6 py-2 border border-white/20 rounded-full text-[10px] uppercase tracking-[0.6em] backdrop-blur-md bg-white/5">Curitiba • PR</span>
-                <h1 class="text-5xl md:text-7xl lg:text-9xl mb-10 tracking-tight serif leading-[1.05]">Realçando sua<br><span class="italic font-light">beleza única</span></h1>
-                <p class="text-lg md:text-xl mb-14 font-light tracking-widest opacity-80 max-w-2xl mx-auto leading-relaxed">Referência em Micropigmentação e Estética Avançada.</p>
+                <span
+                    class="inline-block mb-8 px-6 py-2 border border-white/20 rounded-full text-[10px] uppercase tracking-[0.6em] backdrop-blur-md bg-white/5">Curitiba
+                    • PR</span>
+                <h1 class="text-5xl md:text-7xl lg:text-9xl mb-10 tracking-tight serif leading-[1.05]">Realçando
+                    sua<br><span class="italic font-light">beleza única</span></h1>
+                <p
+                    class="text-lg md:text-xl mb-14 font-light tracking-widest opacity-80 max-w-2xl mx-auto leading-relaxed">
+                    Referência em Micropigmentação e Estética Avançada.</p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="#servicos" class="rose-button w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold shadow-2xl">Procedimentos</a>
-                    <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank" class="bg-white/5 backdrop-blur-xl border border-white/20 hover:bg-white hover:text-black w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold transition-all duration-500">Atendimento VIP</a>
+                    <a href="#servicos"
+                        class="rose-button w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold shadow-2xl">Procedimentos</a>
+                    <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
+                        class="bg-white/5 backdrop-blur-xl border border-white/20 hover:bg-white hover:text-black w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold transition-all duration-500">Atendimento
+                        VIP</a>
                 </div>
             </div>
         </div>
@@ -213,43 +262,66 @@
         <div class="container mx-auto">
             <div class="text-center mb-20" data-aos="fade-down">
                 <h2 class="text-5xl serif tracking-tight text-stone-800">Protocolos Master</h2>
-                <p class="text-stone-400 text-[11px] mt-4 font-light tracking-[0.4em] uppercase">Especialidades Beatriz Leal</p>
+                <p class="text-stone-400 text-[11px] mt-4 font-light tracking-[0.4em] uppercase">Especialidades Beatriz
+                    Leal</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
-                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <div
+                        class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
+                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
                     </div>
                     <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Micropigmentação</h3>
                     <ul class="text-stone-500 space-y-5 text-sm font-light">
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Nanoblading Flow</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Shadow Line Premium</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Neutralização</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                            Nanoblading Flow</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                            Shadow Line Premium</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                            Neutralização</li>
                     </ul>
                 </div>
 
                 <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
-                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+                    <div
+                        class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
+                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                        </svg>
                     </div>
                     <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Olhar & Design</h3>
                     <ul class="text-stone-500 space-y-5 text-sm font-light">
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Lash Lifting Master</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Brow Lamination</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Design Estratégico</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                            Lash Lifting Master</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                            Brow Lamination</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                            Design Estratégico</li>
                     </ul>
                 </div>
 
                 <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
-                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    <div
+                        class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
+                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
                     </div>
                     <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Estética Labial</h3>
                     <ul class="text-stone-500 space-y-5 text-sm font-light">
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Hydra Gloss VIP</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Revitalização Labial</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Neutralização Labial</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                            Hydra Gloss VIP</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                            Revitalização Labial</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                            Neutralização Labial</li>
                     </ul>
                 </div>
             </div>
@@ -261,26 +333,38 @@
             <div class="flex flex-col lg:flex-row items-center gap-20">
                 <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-right">
                     <div class="profile-img-container">
-                        <img src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/363303225_17984827493255340_8795290345032083822_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzE1NTA0OTE3NzMxMzMyNDQ3NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=GL_ocnAQ7vIQ7kNvwEiaRTd&_nc_oc=AdkurKYrb4HUWfhHbJTKz0qHBNGy1Z32quCG9pYwcc7MstXKx5jZV3CnaR70rC0Gprx2ohxyTr05dxLCvsbDtGYH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=X8VJc7MQeowKXCXovYcPlQ&_nc_ss=8&oh=00_AfyUot_4VqAEZuhK4nragUcdsVNk3of-KCp0iI8P-rXAuQ&oe=69B443E6" alt="Beatriz Leal" class="relative z-10 w-full rounded shadow-2xl overflow-hidden grayscale-[20%] hover:grayscale-0 transition-all duration-1000">
+                        <img src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/363303225_17984827493255340_8795290345032083822_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzE1NTA0OTE3NzMxMzMyNDQ3NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=GL_ocnAQ7vIQ7kNvwEiaRTd&_nc_oc=AdkurKYrb4HUWfhHbJTKz0qHBNGy1Z32quCG9pYwcc7MstXKx5jZV3CnaR70rC0Gprx2ohxyTr05dxLCvsbDtGYH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=X8VJc7MQeowKXCXovYcPlQ&_nc_ss=8&oh=00_AfyUot_4VqAEZuhK4nragUcdsVNk3of-KCp0iI8P-rXAuQ&oe=69B443E6"
+                            alt="Beatriz Leal"
+                            class="relative z-10 w-full rounded shadow-2xl overflow-hidden grayscale-[20%] hover:grayscale-0 transition-all duration-1000">
                     </div>
                 </div>
-                
+
                 <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-left">
-                    <span class="text-[#D4888C] uppercase tracking-[0.5em] text-[11px] font-bold mb-6 block">The Academy & Founder</span>
+                    <span class="text-[#D4888C] uppercase tracking-[0.5em] text-[11px] font-bold mb-6 block">The Academy
+                        & Founder</span>
                     <h2 class="text-5xl md:text-7xl mb-10 serif tracking-tight text-stone-800">Beatriz Leal</h2>
                     <div class="space-y-8 text-stone-500 leading-relaxed font-light text-lg">
                         <p>
-                            Especialista em visagismo e micropigmentação avançada, Beatriz Leal construiu uma carreira sólida baseada na perfeição técnica e no atendimento humanizado.
+                            Especialista em visagismo e micropigmentação avançada, Beatriz Leal construiu uma carreira
+                            sólida baseada na perfeição técnica e no atendimento humanizado.
                         </p>
                         <p>
-                            À frente da sua própria academia, forma anualmente centenas de profissionais que buscam o "Padrão Leal" de excelência, elevando o nível do mercado de estética nacional.
+                            À frente da sua própria academia, forma anualmente centenas de profissionais que buscam o
+                            "Padrão Leal" de excelência, elevando o nível do mercado de estética nacional.
                         </p>
                     </div>
-                    
+
                     <div class="flex justify-center lg:justify-start mt-12">
-                        <a href="https://www.instagram.com/bialeal.beauty/" target="_blank" class="inline-flex items-center gap-5 text-xs font-bold uppercase tracking-[0.3em] text-stone-800 group border border-stone-100 pr-10 rounded-full hover:bg-stone-50 transition-all duration-500">
-                            <span class="bg-[#D4888C] text-white p-5 rounded-full group-hover:bg-[#bc767a] transition-all shadow-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <a href="https://www.instagram.com/bialeal.beauty/" target="_blank"
+                            class="inline-flex items-center gap-5 text-xs font-bold uppercase tracking-[0.3em] text-stone-800 group border border-stone-100 pr-10 rounded-full hover:bg-stone-50 transition-all duration-500">
+                            <span
+                                class="bg-[#D4888C] text-white p-5 rounded-full group-hover:bg-[#bc767a] transition-all shadow-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
                             </span>
                             Instagram Profissional
                         </a>
@@ -292,23 +376,35 @@
 
     <section id="contato" class="py-32 bg-stone-900 text-white px-6">
         <div class="container mx-auto">
-            <div class="max-w-6xl mx-auto bg-white/5 rounded-[50px] p-10 md:p-24 flex flex-col lg:flex-row gap-20 items-center border border-white/10" data-aos="zoom-in-up">
+            <div class="max-w-6xl mx-auto bg-white/5 rounded-[50px] p-10 md:p-24 flex flex-col lg:flex-row gap-20 items-center border border-white/10"
+                data-aos="zoom-in-up">
                 <div class="w-full lg:w-1/2 text-center lg:text-left">
-                    <h2 class="text-4xl md:text-6xl serif mb-12 tracking-tight">Sua jornada VIP <br><span class="italic font-light opacity-60">começa aqui</span></h2>
+                    <h2 class="text-4xl md:text-6xl serif mb-12 tracking-tight">Sua jornada VIP <br><span
+                            class="italic font-light opacity-60">começa aqui</span></h2>
                     <div class="space-y-10">
                         <div class="flex items-center gap-6 justify-center lg:justify-start group">
-                            <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-[#D4888C] group-hover:bg-[#D4888C] group-hover:text-white transition-all">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div
+                                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-[#D4888C] group-hover:bg-[#D4888C] group-hover:text-white transition-all">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
                             </div>
-                            <span class="text-sm tracking-widest uppercase font-light">Curitiba, PR • Studio Exclusivo</span>
+                            <span class="text-sm tracking-widest uppercase font-light">Curitiba, PR • Studio
+                                Exclusivo</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="w-full lg:w-1/2 bg-white rounded-[40px] p-12 md:p-20 text-center shadow-3xl text-stone-800 relative">
+
+                <div
+                    class="w-full lg:w-1/2 bg-white rounded-[40px] p-12 md:p-20 text-center shadow-3xl text-stone-800 relative">
                     <h3 class="text-3xl serif mb-6">Solicitar Avaliação</h3>
-                    <p class="text-stone-500 mb-12 text-base font-light">Atendimento personalizado com horários limitados para garantir a máxima exclusividade.</p>
-                    <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank" class="rose-button block w-full py-6 rounded-full font-bold uppercase tracking-[0.3em] text-[11px] text-white">Falar com Consultora</a>
+                    <p class="text-stone-500 mb-12 text-base font-light">Atendimento personalizado com horários
+                        limitados para garantir a máxima exclusividade.</p>
+                    <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
+                        class="rose-button block w-full py-6 rounded-full font-bold uppercase tracking-[0.3em] text-[11px] text-white">Falar
+                        com Consultora</a>
                 </div>
             </div>
         </div>
@@ -317,7 +413,8 @@
     <footer class="py-24 bg-[#F9F7F2] text-center px-6">
         <div class="container mx-auto" data-aos="fade-up">
             <div class="text-3xl serif mb-12 text-stone-800 tracking-tighter">BEATRIZ LEAL</div>
-            <p class="text-[10px] text-stone-400 uppercase tracking-[0.6em] mb-12">Luxury Beauty • Expert Academy • Elite Care</p>
+            <p class="text-[10px] text-stone-400 uppercase tracking-[0.6em] mb-12">Luxury Beauty • Expert Academy •
+                Elite Care</p>
             <div class="w-20 h-[1px] bg-stone-200 mx-auto mb-12"></div>
             <p class="text-[9px] text-stone-300 uppercase tracking-[0.4em]">© 2026 Todos os Direitos Reservados</p>
         </div>
@@ -364,6 +461,5 @@
         navLinks.forEach(link => link.addEventListener('click', toggleMenu));
     </script>
 </body>
+
 </html>
-
-
