@@ -1,749 +1,777 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+
+<html lang="pt-br" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beatriz Leal | Especialista em Sobrancelhas</title>
-  <meta name="description" content="Especialista em design de sobrancelhas e micropigmentação em Curitiba.">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
-    rel="stylesheet">
+    <meta charset="UTF-8">
 
-  <!-- Icons (Lucide) -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              black: '#0a0a0a',
-              dark: '#121212',
-              rose: '#e1adac', // Soft rose
-              roseDark: '#be7c7b',
-              white: '#ffffff',
-              gray: '#f5f5f5'
-            }
-          },
-          fontFamily: {
-            serif: ['"Playfair Display"', 'serif'],
-            sans: ['"Montserrat"', 'sans-serif'],
-          },
-          backgroundImage: {
-            'gradient-rose': 'linear-gradient(to right, #e1adac, #d49392)',
-          },
-          animation: {
-            'fade-in-up': 'fadeInUp 1s ease-out forwards',
-            'pulse-slow': 'pulse 3s infinite',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            }
-          }
+    <title>Beatriz Leal | Beauty & Academy</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Biblioteca de Animação AOS -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+
+        :root {
+
+            --rose-logo: #D4888C; 
+
+            --gold-accent: #C5A059;
+
+            --dark-bg: #1A1A1A;
+
         }
-      }
-    }
-  </script>
-  <style>
-    body {
-      background-color: #0a0a0a;
-      color: #ffffff;
-    }
 
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
+        body {
 
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+            font-family: 'Montserrat', sans-serif;
 
-    /* Custom utility for animation delays */
-    .delay-200 {
-      animation-delay: 200ms;
-    }
+            background-color: #F9F7F2;
 
-    .delay-400 {
-      animation-delay: 400ms;
-    }
+            color: #333;
 
-    .delay-600 {
-      animation-delay: 600ms;
-    }
-  </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
-  }
-}
-</script>
+            opacity: 0; /* Começa invisível para o fade-in de entrada */
+
+            transition: opacity 1.5s ease;
+
+        }
+
+        body.loaded {
+
+            opacity: 1;
+
+        }
+
+        h1, h2, h3, .serif {
+
+            font-family: 'Playfair Display', serif;
+
+        }
+
+
+
+        /* Hero Section Otimizada */
+
+        .hero-container {
+
+            position: relative;
+
+            min-height: 100vh;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background-color: #000;
+
+        }
+
+
+
+        .hero-overlay {
+
+            position: absolute;
+
+            top: 0; left: 0; width: 100%; height: 100%;
+
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%);
+
+            z-index: 2;
+
+        }
+
+
+
+        .hero-media {
+
+            position: absolute;
+
+            top: 0; left: 0; width: 100%; height: 100%;
+
+            object-fit: cover;
+
+            z-index: 1;
+
+            animation: slowZoom 25s infinite alternate ease-in-out;
+
+        }
+
+
+
+        @keyframes slowZoom {
+
+            from { transform: scale(1); }
+
+            to { transform: scale(1.15); }
+
+        }
+
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 3;
+
+            text-align: center;
+
+            color: white;
+
+            padding: 120px 1.5rem 60px;
+
+        }
+
+
+
+        /* Botão Premium */
+
+        .rose-button {
+
+            background-color: var(--rose-logo);
+
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        .rose-button::after {
+
+            content: '';
+
+            position: absolute;
+
+            top: 50%; left: 50%;
+
+            width: 300%; height: 300%;
+
+            background: rgba(255,255,255,0.1);
+
+            transition: all 0.75s ease;
+
+            transform: translate(-50%, -50%) rotate(45deg) scale(0);
+
+        }
+
+        .rose-button:hover::after {
+
+            transform: translate(-50%, -50%) rotate(45deg) scale(1);
+
+        }
+
+        .rose-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 15px 30px rgba(212, 136, 140, 0.3);
+
+        }
+
+
+
+        /* Cards de Serviço */
+
+        .card-service {
+
+            background: #FFF;
+
+            border-radius: 15px;
+
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+            border: 1px solid rgba(0,0,0,0.03);
+
+        }
+
+        .card-service:hover {
+
+            transform: translateY(-12px);
+
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+
+        }
+
+
+
+        /* Imagem Sobre - Moldura Dinâmica */
+
+        .profile-img-container {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 400px;
+
+        }
+
+        .profile-img-container::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 30px; left: 30px; right: -20px; bottom: -20px;
+
+            border: 1px solid var(--rose-logo);
+
+            z-index: 0;
+
+            transition: all 0.8s ease;
+
+        }
+
+        .profile-img-container:hover::before {
+
+            top: 15px; left: 15px; right: -10px; bottom: -10px;
+
+        }
+
+
+
+        /* Transição Suave entre Seções */
+
+        section {
+
+            overflow: hidden;
+
+        }
+
+    </style>
+
 </head>
 
-<body class="font-sans selection:bg-brand-rose selection:text-white overflow-x-hidden">
+<body class="antialiased">
 
-  <!-- Header -->
-  <header id="main-header" class="fixed w-full z-50 transition-all duration-300 py-6 bg-transparent">
-    <div class="container mx-auto px-6 flex justify-between items-center">
-      <!-- Logo -->
-      <a href="#" class="font-serif text-2xl md:text-3xl text-white font-bold tracking-wider">
-        Beatriz<span class="text-brand-rose">Leal</span>
-      </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center space-x-8">
-        <a href="#hero"
-          class="text-sm uppercase tracking-widest text-gray-300 hover:text-brand-rose transition-colors relative group">
-          Início
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-rose transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#about"
-          class="text-sm uppercase tracking-widest text-gray-300 hover:text-brand-rose transition-colors relative group">
-          Sobre
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-rose transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#services"
-          class="text-sm uppercase tracking-widest text-gray-300 hover:text-brand-rose transition-colors relative group">
-          Procedimentos
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-rose transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#gallery"
-          class="text-sm uppercase tracking-widest text-gray-300 hover:text-brand-rose transition-colors relative group">
-          Resultados
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-rose transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#testimonials"
-          class="text-sm uppercase tracking-widest text-gray-300 hover:text-brand-rose transition-colors relative group">
-          Depoimentos
-          <span
-            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-rose transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#contact"
-          class="px-5 py-2 border border-brand-rose text-brand-rose text-xs uppercase tracking-widest hover:bg-brand-rose hover:text-white transition-all duration-300">
-          Agendar
-        </a>
-      </nav>
 
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brand-rose transition-colors"
-        aria-label="Toggle menu">
-        <i data-lucide="menu" width="28" height="28"></i>
-      </button>
+    <!-- Header -->
+
+    <header class="fixed w-full z-50 transition-all duration-700" id="main-header">
+
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
+
+            <div class="flex items-center" data-aos="fade-right" data-aos-duration="1000">
+
+                <div class="text-white font-bold tracking-tighter text-2xl serif">
+
+                    BEATRIZ LEAL<span class="text-[#D4888C]">.</span>
+
+                </div>
+
+            </div>
+
+            
+
+            <div class="hidden lg:flex space-x-10 text-[11px] uppercase tracking-[0.4em] font-semibold text-white/80">
+
+                <a href="#inicio" class="hover:text-[#D4888C] transition-all duration-300">Início</a>
+
+                <a href="#servicos" class="hover:text-[#D4888C] transition-all duration-300">Procedimentos</a>
+
+                <a href="#sobre" class="hover:text-[#D4888C] transition-all duration-300">Sobre</a>
+
+                <a href="#contato" class="hover:text-[#D4888C] transition-all duration-300">Contato</a>
+
+            </div>
+
+            
+
+            <div class="flex items-center gap-4" data-aos="fade-left" data-aos-duration="1000">
+
+                <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank" class="rose-button text-white px-8 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hidden sm:block">Agendar</a>
+
+                <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
+
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Mobile Navigation Overlay -->
+
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/98 z-[60] flex flex-col items-center justify-center space-y-10 text-white uppercase tracking-[0.5em] text-sm hidden">
+
+        <button id="menu-close" class="absolute top-8 right-8 text-white">
+
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+
+        </button>
+
+        <a href="#inicio" class="nav-link hover:text-[#D4888C]">Início</a>
+
+        <a href="#servicos" class="nav-link hover:text-[#D4888C]">Procedimentos</a>
+
+        <a href="#sobre" class="nav-link hover:text-[#D4888C]">Sobre</a>
+
+        <a href="#contato" class="nav-link hover:text-[#D4888C]">Contato</a>
+
     </div>
 
-    <!-- Mobile Nav Overlay -->
-    <div id="mobile-menu"
-      class="md:hidden fixed inset-0 bg-black/95 backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-8 transition-transform duration-500 ease-in-out translate-x-full">
-      <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-brand-rose">
-        <i data-lucide="x" width="28" height="28"></i>
-      </button>
-      <a href="#hero" class="mobile-link font-serif text-2xl text-white hover:text-brand-rose">Início</a>
-      <a href="#about" class="mobile-link font-serif text-2xl text-white hover:text-brand-rose">Sobre</a>
-      <a href="#services" class="mobile-link font-serif text-2xl text-white hover:text-brand-rose">Procedimentos</a>
-      <a href="#gallery" class="mobile-link font-serif text-2xl text-white hover:text-brand-rose">Resultados</a>
-      <a href="#contact" class="mobile-link font-serif text-2xl text-white hover:text-brand-rose">Contato</a>
-    </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-    <!-- Background Image -->
-    <div class="absolute inset-0 z-0">
-      <img src="topo.jpg" alt="Close up of beautiful eyebrows"
-        class="w-full h-full object-cover object-center opacity-60">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-brand-black"></div>
-    </div>
 
-    <!-- Content -->
-    <div class="relative z-10 container mx-auto px-6 text-center">
-      <span
-        class="inline-block py-1 px-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm text-xs md:text-sm tracking-[0.3em] uppercase text-gray-300 mb-6 animate-fade-in-up">
-        Estética & Beleza em Curitiba
-      </span>
+    <!-- Hero Section -->
 
-      <h1
-        class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-medium mb-6 leading-tight animate-fade-in-up delay-200">
-        A Arte do <br />
-        <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-brand-rose via-rose-200 to-white italic pr-2">Olhar
-          Perfeito</span>
-      </h1>
+    <section id="inicio" class="hero-container">
 
-      <p
-        class="font-sans text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed animate-fade-in-up delay-400">
-        Realçando sua beleza natural com sofisticação.
-      </p>
+        <img src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/469267084_18039240899255340_161286560798501958_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzM0MzIxNDY1MzUzMjUzMTA2Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=EN-eaNmCtsMQ7kNvwEVhMkq&_nc_oc=Adnl61VdwjWbVBFCYt25MJpQgQo0yy-wGJQJUPYZp5Tb7knKZkwwyGIZMRUzBoT_c7YCCrw4HurIj3c0ES2oyi8I&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=HXb_dXcB_YoA-akcgsA96g&_nc_ss=8&oh=00_AfzpQFqKIxM3sH0FzkIEhNqTm2trVilCIVCYBkLRpmZMoA&oe=69B43D5C" alt="Beatriz Leal Studio" class="hero-media" onerror="this.src='https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&q=80&w=2000'">
 
-      <div class="animate-fade-in-up delay-600">
-        <a href="https://linktr.ee/" target="_blank"
-          class="inline-block px-8 py-3 text-sm font-medium tracking-widest uppercase transition-all duration-300 ease-out transform hover:-translate-y-1 hover:shadow-lg bg-gradient-to-r from-brand-rose to-brand-roseDark text-white hover:brightness-110 border border-transparent">
-          Agende seu Atendimento
-        </a>
-      </div>
-    </div>
+        <div class="hero-overlay"></div>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
-      <i data-lucide="chevron-down" width="32" height="32"></i>
-    </div>
-  </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-24 bg-brand-black relative">
-    <div class="container mx-auto px-6">
-      <div class="flex flex-col lg:flex-row items-center gap-16">
 
-        <!-- Image Side -->
-        <div class="w-full lg:w-1/2 relative group">
-          <div
-            class="absolute -inset-4 bg-gradient-to-r from-brand-rose to-purple-900 rounded-lg opacity-30 blur-lg group-hover:opacity-50 transition duration-500">
-          </div>
-          <div class="relative h-[600px] w-full overflow-hidden rounded-lg">
-            <img
-              src="https://scontent.cdninstagram.com/v/t39.30808-6/469168959_18039240929255340_2339693295190665506_n.jpg?stp=dst-jpg_e35_p1080x1080_tt6&_nc_cat=108&ig_cache_key=MzM1NTUzNjczMzQ2MDQzNTI4OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=bKqnertEqvAQ7kNvwFwHkdK&_nc_oc=Adm4Kaz_HaRHkOK6MUC8b9q1Nvug8HAqoU2qmCz_FRe5eRwJRM_ewa3cojIWbw9j8ON0mYtSej_5GA4vxQIO03V5&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=RrC_8BhTev_sVi7mIot-LA&oh=00_AflCb9lWnBLYE-7h5y6CyL_JglW3QHvjlzi7BKeXRMADHA&oe=694563E7"
-              alt="Beatriz Leal Specialist"
-              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out transform group-hover:scale-105">
-          </div>
+        <div class="hero-content max-w-5xl px-6">
 
-          <!-- Experience Badge -->
-          <div
-            class="absolute bottom-10 -right-4 md:-right-10 bg-white p-6 md:p-8 rounded-none shadow-2xl max-w-[200px]">
-            <p class="font-serif text-4xl md:text-5xl text-brand-black font-bold">5+</p>
-            <p class="text-xs uppercase tracking-widest text-gray-500 mt-2">Anos de<br />Experiência</p>
-          </div>
+            <div data-aos="fade-up" data-aos-duration="1500">
+
+                <span class="inline-block mb-8 px-6 py-2 border border-white/20 rounded-full text-[10px] uppercase tracking-[0.6em] backdrop-blur-md bg-white/5">Curitiba • PR</span>
+
+                <h1 class="text-5xl md:text-7xl lg:text-9xl mb-10 tracking-tight serif leading-[1.05]">Realçando sua<br><span class="italic font-light">beleza única</span></h1>
+
+                <p class="text-lg md:text-xl mb-14 font-light tracking-widest opacity-80 max-w-2xl mx-auto leading-relaxed">Referência em Micropigmentação e Estética Avançada.</p>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+
+                    <a href="#servicos" class="rose-button w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold shadow-2xl">Procedimentos</a>
+
+                    <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank" class="bg-white/5 backdrop-blur-xl border border-white/20 hover:bg-white hover:text-black w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold transition-all duration-500">Atendimento VIP</a>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- Text Side -->
-        <div class="w-full lg:w-1/2">
-          <div class="mb-12 text-left">
-            <span class="block text-brand-rose text-xs font-bold tracking-[0.2em] uppercase mb-2 animate-pulse-slow">A
-              Especialista</span>
-            <h2 class="font-serif text-3xl md:text-5xl text-white leading-tight">Beatriz Leal</h2>
-            <div class="h-1 w-20 bg-gradient-to-r from-brand-rose to-transparent mt-6"></div>
-          </div>
+    </section>
 
-          <p class="text-gray-300 leading-relaxed mb-6 font-light text-lg">
-            Apaixonada por realçar a beleza natural, Beatriz Leal é referência em design de sobrancelhas e
-            micropigmentação em Curitiba. Com uma visão artística apurada e técnica refinada, ela transforma olhares
-            respeitando a harmonia de cada rosto.
-          </p>
 
-          <p class="text-gray-300 leading-relaxed mb-10 font-light">
-            Sua jornada é marcada pela busca incessante pela excelência, participando de congressos internacionais e
-            especializações com os maiores nomes da estética mundial. Para Beatriz, cada atendimento é único e deve ser
-            uma experiência de luxo e bem-estar.
-          </p>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="flex items-start gap-4">
-              <div class="p-3 bg-brand-dark rounded-full border border-brand-rose/20">
-                <i data-lucide="award" class="text-brand-rose" width="24" height="24"></i>
-              </div>
-              <div>
-                <h4 class="font-serif text-xl text-white mb-1">Certificações</h4>
-                <p class="text-sm text-gray-400">Master Class Internacional em Micropigmentação</p>
-              </div>
+    <!-- Missão -->
+
+    <section class="py-32 bg-white text-center px-6">
+
+        <div class="container mx-auto max-w-4xl" data-aos="fade-up" data-aos-duration="1200">
+
+            <div class="mb-10 flex justify-center items-center gap-6">
+
+                <div class="w-16 h-[1px] bg-[#D4888C]"></div>
+
+                <span class="text-[#D4888C] uppercase tracking-[0.5em] text-[10px] font-bold">A Filosofia</span>
+
+                <div class="w-16 h-[1px] bg-[#D4888C]"></div>
+
             </div>
 
-            <div class="flex items-start gap-4">
-              <div class="p-3 bg-brand-dark rounded-full border border-brand-rose/20">
-                <i data-lucide="star" class="text-brand-rose" width="24" height="24"></i>
-              </div>
-              <div>
-                <h4 class="font-serif text-xl text-white mb-1">Qualidade</h4>
-                <p class="text-sm text-gray-400">Produtos premium e técnicas de vanguarda</p>
-              </div>
+            <h2 class="text-4xl md:text-6xl mb-12 serif italic text-stone-800">Cuidado em cada traço</h2>
+
+            <p class="text-stone-600 leading-relaxed mb-12 text-2xl md:text-3xl serif italic font-light px-4">
+
+                "Minha missão é unir técnica de ponta com a sensibilidade para revelar a melhor versão de cada mulher."
+
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-stone-100">
+
+                <div data-aos="zoom-in" data-aos-delay="100">
+
+                    <h4 class="text-3xl serif text-[#D4888C]">4x</h4>
+
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Premiada</p>
+
+                </div>
+
+                <div data-aos="zoom-in" data-aos-delay="200">
+
+                    <h4 class="text-3xl serif text-[#D4888C]">Int.</h4>
+
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Certificação</p>
+
+                </div>
+
+                <div data-aos="zoom-in" data-aos-delay="300">
+
+                    <h4 class="text-3xl serif text-[#D4888C]">+2k</h4>
+
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Atendimentos</p>
+
+                </div>
+
+                <div data-aos="zoom-in" data-aos-delay="400">
+
+                    <h4 class="text-3xl serif text-[#D4888C]">Luxo</h4>
+
+                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Experiência</p>
+
+                </div>
+
             </div>
 
-            <div class="flex items-start gap-4">
-              <div class="p-3 bg-brand-dark rounded-full border border-brand-rose/20">
-                <i data-lucide="heart" class="text-brand-rose" width="24" height="24"></i>
-              </div>
-              <div>
-                <h4 class="font-serif text-xl text-white mb-1">Atendimento</h4>
-                <p class="text-sm text-gray-400">Personalizado e focado na sua autoestima</p>
-              </div>
-            </div>
-          </div>
         </div>
 
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-24 bg-brand-dark">
-    <div class="container mx-auto px-6">
-      <div class="mb-12 text-center">
-        <span class="block text-brand-rose text-xs font-bold tracking-[0.2em] uppercase mb-2 animate-pulse-slow">
-          Excelência & Técnica
-        </span>
-        <h2 class="font-serif text-3xl md:text-5xl text-white leading-tight">Procedimentos</h2>
-        <div class="h-1 w-20 bg-gradient-to-r from-brand-rose to-transparent mt-6 mx-auto"></div>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
 
-        <!-- Item 1 -->
-        <div class="group relative h-[400px] overflow-hidden rounded-sm cursor-pointer">
-          <img
-            src="https://img.freepik.com/fotos-gratis/mulher-passando-por-um-tratamento-de-microblading_23-2149103152.jpg?t=st=1765780839~exp=1765784439~hmac=96c4ee3555211f569739c8da698b266e9c40de881af45303d9c0da105b2cfb4f&w=2000"
-            alt="Nanoblading"
-            class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-80">
-          </div>
+    <!-- Procedimentos -->
 
-          <!-- Conteúdo do card -->
-          <div class="absolute inset-0 flex flex-col justify-end p-8">
-            <div
-              class="h-1 w-12 bg-brand-rose mb-4 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100">
+    <section id="servicos" class="py-32 bg-[#F2EDE9] px-6">
+
+        <div class="container mx-auto">
+
+            <div class="text-center mb-20" data-aos="fade-down">
+
+                <h2 class="text-5xl serif tracking-tight text-stone-800">Protocolos Master</h2>
+
+                <p class="text-stone-400 text-[11px] mt-4 font-light tracking-[0.4em] uppercase">Especialidades Beatriz Leal</p>
+
             </div>
-            <div class="min-h-[6rem]">
-              <h3 class="font-serif text-2xl text-white mb-2">Nanoblading <br></h3>
-              <p
-                class="text-gray-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                Hiper-realista.
-              </p>
+
+            
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Card 1 -->
+
+                <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
+
+                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+
+                    </div>
+
+                    <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Micropigmentação</h3>
+
+                    <ul class="text-stone-500 space-y-5 text-sm font-light">
+
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Nanoblading Flow</li>
+
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Shadow Line Premium</li>
+
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Neutralização</li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- Card 2 -->
+
+                <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+
+                    <div class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
+
+                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+
+                    </div>
+
+                    <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Olhar & Design</h3>
+
+                    <ul class="text-stone-500 space-y-5 text-sm font-light">
+
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Lash Lifting Master</li>
+
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Brow Lamination</li>
+
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Design Estratégico</li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- Card 3 -->
+
+                <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+
+                    <div class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
+
+                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+
+                    </div>
+
+                    <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Estética Labial</h3>
+
+                    <ul class="text-stone-500 space-y-5 text-sm font-light">
+
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Hydra Gloss VIP</li>
+
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Revitalização Labial</li>
+
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Neutralização Labial</li>
+
+                    </ul>
+
+                </div>
+
             </div>
-          </div>
+
         </div>
 
-        <!-- Item 2 -->
-        <div class="group relative h-[400px] overflow-hidden rounded-sm cursor-pointer">
-          <img
-            src="https://img.freepik.com/fotos-gratis/mulher-bonita-com-delineador-preto_23-2149089045.jpg?t=st=1765780943~exp=1765784543~hmac=e101b43be3a68c69a75fc255e43d00e3157292d79f3c5739b01a76fd44ea6865&w=2000"
-            alt="Shadow Line"
-            class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-80">
-          </div>
-
-          <div class="absolute inset-0 flex flex-col justify-end p-8">
-            <div
-              class="h-1 w-12 bg-brand-rose mb-4 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100">
-            </div>
-            <div class="min-h-[6rem]">
-              <h3 class="font-serif text-2xl text-white mb-2">Shadow <br>Line</h3>
-              <p
-                class="text-gray-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                Fios realistas.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="group relative h-[400px] overflow-hidden rounded-sm cursor-pointer">
-          <img
-            src="https://img.freepik.com/fotos-gratis/mulher-antes-e-depois-de-extensoes-de-pestanas_23-2150039788.jpg?t=st=1765781100~exp=1765784700~hmac=54ed81de21e1cece0e705c1a3a9925e6b5c5ef05d9e03ebb44bdc8c4f25c68da&w=2000"
-            alt="Brow Lamination"
-            class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-80">
-          </div>
-
-          <div class="absolute inset-0 flex flex-col justify-end p-8">
-            <div
-              class="h-1 w-12 bg-brand-rose mb-4 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100">
-            </div>
-            <div class="min-h-[6rem]">
-              <h3 class="font-serif text-2xl text-white mb-2">Brow Lamination</h3>
-              <p
-                class="text-gray-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                Alinha os fios.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="group relative h-[400px] overflow-hidden rounded-sm cursor-pointer">
-          <img
-            src="https://img.freepik.com/fotos-gratis/cliente-passando-por-um-tratamento-de-microblading_23-2149183884.jpg?t=st=1765781163~exp=1765784763~hmac=afa4dc49c071c7ddb50d6e28a1147866695d230f551c5c876d07af85c4f3850b&w=1480"
-            alt="Design Personalizado"
-            class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-80">
-          </div>
-
-          <div class="absolute inset-0 flex flex-col justify-end p-8">
-            <div
-              class="h-1 w-12 bg-brand-rose mb-4 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100">
-            </div>
-            <div class="min-h-[6rem]">
-              <h3 class="font-serif text-2xl text-white mb-2">Design Personalizado</h3>
-              <p
-                class="text-gray-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                Mapeamento facial.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+    </section>
 
 
-  <!-- Gallery Section -->
-  <section id="gallery" class="py-24 bg-brand-black overflow-hidden">
-    <div class="container mx-auto px-6">
-      <div class="mb-12 text-center">
-        <span class="block text-brand-rose text-xs font-bold tracking-[0.2em] uppercase mb-2 animate-pulse-slow">Antes &
-          Depois</span>
-        <h2 class="font-serif text-3xl md:text-5xl text-white leading-tight">Transformações Reais</h2>
-        <div class="h-1 w-20 bg-gradient-to-r from-brand-rose to-transparent mt-6 mx-auto"></div>
-      </div>
 
-      <div class="mt-12 relative max-w-5xl mx-auto">
-        <!-- Main Display Area -->
-        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-8 items-center">
+    <!-- Sobre Beatriz Leal -->
 
-          <!-- Before Image -->
-          <div class="relative group overflow-hidden rounded-sm border border-white/10">
-            <div
-              class="absolute top-4 left-4 z-10 bg-black/70 backdrop-blur-sm px-3 py-1 rounded text-xs uppercase tracking-widest text-white">
-              Antes
-            </div>
-            <img id="gallery-before" src="" alt="Antes do procedimento"
-              class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
+    <section id="sobre" class="py-32 bg-white px-6">
 
-          <!-- After Image -->
-          <div class="relative group overflow-hidden rounded-sm border border-brand-rose/30">
-            <div
-              class="absolute top-4 left-4 z-10 bg-brand-rose/90 backdrop-blur-sm px-3 py-1 rounded text-xs uppercase tracking-widest text-white shadow-lg">
-              Depois
-            </div>
-            <img id="gallery-after" src="" alt="Depois do procedimento"
-              class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
+        <div class="container mx-auto">
 
-          <!-- Icon -->
-          <div
-            class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center w-12 h-12 bg-white rounded-full z-20 shadow-xl text-brand-black">
-            <i data-lucide="move-horizontal" width="24" height="24"></i>
-          </div>
-        </div>
+            <div class="flex flex-col lg:flex-row items-center gap-20">
 
-        <div class="text-center mt-8">
-          <h3 id="gallery-label" class="font-serif text-2xl text-white italic"></h3>
-        </div>
+                <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-right">
 
-        <!-- Navigation Buttons -->
-        <div class="flex justify-center items-center gap-6 mt-10">
-          <button id="gallery-prev"
-            class="p-3 border border-white/20 rounded-full text-white hover:bg-brand-rose hover:border-brand-rose transition-all duration-300">
-            <i data-lucide="chevron-left" width="24" height="24"></i>
-          </button>
-          <div id="gallery-dots" class="flex space-x-2">
-            <!-- Dots injected via JS -->
-          </div>
-          <button id="gallery-next"
-            class="p-3 border border-white/20 rounded-full text-white hover:bg-brand-rose hover:border-brand-rose transition-all duration-300">
-            <i data-lucide="chevron-right" width="24" height="24"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
+                    <div class="profile-img-container">
 
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="py-24 relative bg-brand-dark overflow-hidden">
-    <!-- Background Decor -->
-    <div class="absolute inset-0 z-0 opacity-20">
-      <img
-        src="https://t3.ftcdn.net/jpg/05/09/85/40/360_F_509854035_W21rTwRsVVAgNq9djRvaqiUSciX1px8K.jpg?q=80&w=2070&auto=format&fit=crop"
-        alt="Background Texture" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-brand-black/80"></div>
-    </div>
+                        <img src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/363303225_17984827493255340_8795290345032083822_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzE1NTA0OTE3NzMxMzMyNDQ3NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=GL_ocnAQ7vIQ7kNvwEiaRTd&_nc_oc=AdkurKYrb4HUWfhHbJTKz0qHBNGy1Z32quCG9pYwcc7MstXKx5jZV3CnaR70rC0Gprx2ohxyTr05dxLCvsbDtGYH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=X8VJc7MQeowKXCXovYcPlQ&_nc_ss=8&oh=00_AfyUot_4VqAEZuhK4nragUcdsVNk3of-KCp0iI8P-rXAuQ&oe=69B443E6" alt="Beatriz Leal" class="relative z-10 w-full rounded shadow-2xl overflow-hidden grayscale-[20%] hover:grayscale-0 transition-all duration-1000">
 
-    <div class="container mx-auto px-6 relative z-10">
-      <div class="mb-12 text-center">
-        <span
-          class="block text-brand-rose text-xs font-bold tracking-[0.2em] uppercase mb-2 animate-pulse-slow">Depoimentos</span>
-        <h2 class="font-serif text-3xl md:text-5xl text-white leading-tight">O Que Dizem Nossas Clientes</h2>
-        <div class="h-1 w-20 bg-gradient-to-r from-brand-rose to-transparent mt-6 mx-auto"></div>
-      </div>
+                    </div>
 
-      <div class="max-w-4xl mx-auto mt-16 text-center">
-        <div class="mb-8 flex justify-center text-brand-rose">
-          <i data-lucide="quote" width="48" height="48" class="opacity-80"></i>
-        </div>
+                </div>
 
-        <div id="testimonials-container" class="min-h-[250px] relative">
-          <!-- Testimonials injected via JS -->
-        </div>
+                
 
-        <!-- Dots -->
-        <div id="testimonial-dots" class="flex justify-center space-x-3 mt-12">
-          <!-- Dots injected via JS -->
-        </div>
-      </div>
-    </div>
-  </section>
+                <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-left">
 
-  <!-- Location Section -->
-  <section id="contact" class="py-24 bg-white text-brand-black">
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <span class="text-[#D4888C] uppercase tracking-[0.5em] text-[11px] font-bold mb-6 block">The Academy & Founder</span>
 
-        <!-- Info Side -->
-        <div class="flex flex-col justify-center order-2 lg:order-1">
-          <div class="text-left mb-10">
-            <span class="block text-brand-rose text-xs font-bold tracking-[0.2em] uppercase mb-2">Visite-nos</span>
-            <h2 class="font-serif text-4xl md:text-5xl text-brand-black leading-tight">Agende Sua<br />Transformação
-            </h2>
-            <div class="h-1 w-20 bg-brand-rose mt-6"></div>
-          </div>
+                    <h2 class="text-5xl md:text-7xl mb-10 serif tracking-tight text-stone-800">Beatriz Leal</h2>
 
-          <p class="text-gray-600 mb-10 leading-relaxed font-light">
-            Estamos localizados no coração de Curitiba, em um ambiente preparado para oferecer o máximo conforto e
-            exclusividade durante o seu atendimento.
-          </p>
+                    <div class="space-y-8 text-stone-500 leading-relaxed font-light text-lg">
 
-          <div class="space-y-6 mb-10">
-            <div class="flex items-start gap-4">
-              <div class="mt-1 bg-gray-100 p-2 rounded-full">
-                <i data-lucide="map-pin" class="text-brand-rose" width="20" height="20"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-brand-black uppercase text-sm tracking-wide">Endereço</h4>
-                <p class="text-gray-600 font-light mt-1 max-w-xs">Av. do Batel, 1230 - Batel, Curitiba - PR, 80420-090
-                </p>
-              </div>
+                        <p>
+
+                            Especialista em visagismo e micropigmentação avançada, Beatriz Leal construiu uma carreira sólida baseada na perfeição técnica e no atendimento humanizado.
+
+                        </p>
+
+                        <p>
+
+                            À frente da sua própria academia, forma anualmente centenas de profissionais que buscam o "Padrão Leal" de excelência, elevando o nível do mercado de estética nacional.
+
+                        </p>
+
+                    </div>
+
+                    
+
+                    <div class="flex justify-center lg:justify-start mt-12">
+
+                        <a href="https://www.instagram.com/bialeal.beauty/" target="_blank" class="inline-flex items-center gap-5 text-xs font-bold uppercase tracking-[0.3em] text-stone-800 group border border-stone-100 pr-10 rounded-full hover:bg-stone-50 transition-all duration-500">
+
+                            <span class="bg-[#D4888C] text-white p-5 rounded-full group-hover:bg-[#bc767a] transition-all shadow-xl">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+
+                            </span>
+
+                            Instagram Profissional
+
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="flex items-start gap-4">
-              <div class="mt-1 bg-gray-100 p-2 rounded-full">
-                <i data-lucide="clock" class="text-brand-rose" width="20" height="20"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-brand-black uppercase text-sm tracking-wide">Horário</h4>
-                <p class="text-gray-600 font-light mt-1">Terça a Sábado: 09h às 19h</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div class="mt-1 bg-gray-100 p-2 rounded-full">
-                <i data-lucide="phone" class="text-brand-rose" width="20" height="20"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-brand-black uppercase text-sm tracking-wide">Contato</h4>
-                <p class="text-gray-600 font-light mt-1">(41) 99999-9999</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="https://linktr.ee/" target="_blank"
-            class="inline-block px-8 py-3 text-sm font-medium tracking-widest uppercase transition-all duration-300 ease-out transform hover:-translate-y-1 hover:shadow-lg bg-gradient-to-r from-brand-rose to-brand-roseDark text-white hover:brightness-110 border border-transparent focus:outline-none focus:ring-2 focus:ring-brand-rose focus:ring-offset-2 focus:ring-offset-black">
-            Agendar Agora
-          </a>
         </div>
 
-        <!-- Map Side -->
-        <div class="h-[500px] w-full bg-gray-200 rounded-sm overflow-hidden shadow-2xl order-1 lg:order-2">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.835776991166!2d-49.29367268498553!3d-25.44376498378216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce38e2e2a0951%3A0x6b7774d08a8d132!2sBatel%2C%20Curitiba%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1646274000000!5m2!1spt-BR!2sbr"
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Google Maps Location"
-            class="grayscale hover:grayscale-0 transition duration-700">
-          </iframe>
+    </section>
+
+
+
+    <!-- Contato -->
+
+    <section id="contato" class="py-32 bg-stone-900 text-white px-6">
+
+        <div class="container mx-auto">
+
+            <div class="max-w-6xl mx-auto bg-white/5 rounded-[50px] p-10 md:p-24 flex flex-col lg:flex-row gap-20 items-center border border-white/10" data-aos="zoom-in-up">
+
+                <div class="w-full lg:w-1/2 text-center lg:text-left">
+
+                    <h2 class="text-4xl md:text-6xl serif mb-12 tracking-tight">Sua jornada VIP <br><span class="italic font-light opacity-60">começa aqui</span></h2>
+
+                    <div class="space-y-10">
+
+                        <div class="flex items-center gap-6 justify-center lg:justify-start group">
+
+                            <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-[#D4888C] group-hover:bg-[#D4888C] group-hover:text-white transition-all">
+
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+
+                            </div>
+
+                            <span class="text-sm tracking-widest uppercase font-light">Curitiba, PR • Studio Exclusivo</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                
+
+                <div class="w-full lg:w-1/2 bg-white rounded-[40px] p-12 md:p-20 text-center shadow-3xl text-stone-800 relative">
+
+                    <h3 class="text-3xl serif mb-6">Solicitar Avaliação</h3>
+
+                    <p class="text-stone-500 mb-12 text-base font-light">Atendimento personalizado com horários limitados para garantir a máxima exclusividade.</p>
+
+                    <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank" class="rose-button block w-full py-6 rounded-full font-bold uppercase tracking-[0.3em] text-[11px] text-white">Falar com Consultora</a>
+
+                </div>
+
+            </div>
+
         </div>
 
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-brand-black border-t border-white/10 pt-16 pb-8">
-    <div class="container mx-auto px-6 text-center">
-      <!-- Brand -->
-      <h2 class="font-serif text-3xl text-white mb-6">
-        Beatriz<span class="text-brand-rose">Leal</span>
-      </h2>
 
-      <!-- Socials -->
-      <div class="flex justify-center space-x-8 mb-10">
-        <a href="#" class="text-gray-400 hover:text-brand-rose transition-colors transform hover:-translate-y-1">
-          <i data-lucide="instagram" width="24" height="24"></i>
-        </a>
-        <a href="#" class="text-gray-400 hover:text-brand-rose transition-colors transform hover:-translate-y-1">
-          <i data-lucide="facebook" width="24" height="24"></i>
-        </a>
-        <a href="#" class="text-gray-400 hover:text-brand-rose transition-colors transform hover:-translate-y-1">
-          <i data-lucide="mail" width="24" height="24"></i>
-        </a>
-      </div>
 
-      <!-- Links -->
-      <div class="flex flex-wrap justify-center gap-6 mb-10 text-sm uppercase tracking-widest text-gray-500">
-        <a href="#hero" class="hover:text-white transition-colors">Início</a>
-        <a href="#about" class="hover:text-white transition-colors">Sobre</a>
-        <a href="#services" class="hover:text-white transition-colors">Procedimentos</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contato</a>
-      </div>
+    <!-- Footer -->
 
-      <!-- Copyright -->
-      <div class="border-t border-white/5 pt-8 text-xs text-gray-600 font-light">
-        <p>&copy; 2024 Beatriz Leal. Todos os direitos reservados.</p>
-        <p class="mt-2">Design minimalista e luxuoso.</p>
-      </div>
-    </div>
-  </footer>
+    <footer class="py-24 bg-[#F9F7F2] text-center px-6">
 
-  <!-- Interactive Logic -->
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
+        <div class="container mx-auto" data-aos="fade-up">
 
-    // Data
-    const galleryImages = [
-      {
-        before: "https://img.freepik.com/fotos-gratis/close-up-do-rosto-e-olho-de-uma-mulher_23-2152010124.jpg?t=st=1765782305~exp=1765785905~hmac=a1d31847c4c978b0afc158e2e7fe628452c9af87c5cbdaffe3e3d68f890c0dea&w=1480",
-        after: "https://img.freepik.com/fotos-gratis/close-up-de-um-olho-castanho-com-cilios-longos_23-2152020243.jpg?t=st=1765782306~exp=1765785906~hmac=d4dd77d18eefa7710e5b5cf0208f6daf233b793269a126a980f6b4138d476b42&w=2000",
-        label: "Nanoblading Fios Realistas"
-      },
-      {
-        before: "https://img.freepik.com/fotos-gratis/mulher-bonita-com-delineador-preto_23-2149089051.jpg?t=st=1765782500~exp=1765786100~hmac=1e631f7c0e8fc94acc8a74e0e6c9c907f543bf2c494a4b1aae4db98b6c928798&w=1480",
-        after: "https://img.freepik.com/fotos-gratis/mulher-bonita-com-delineador-preto_23-2149089045.jpg?t=st=1765782257~exp=1765785857~hmac=ee0b377afebfd4169d51e8d1346b84e11ee7d227c04a29ec93e735780785d3e4&w=1480",
-        label: "Shadow Line Definition"
-      }
-    ];
+            <div class="text-3xl serif mb-12 text-stone-800 tracking-tighter">BEATRIZ LEAL</div>
 
-    const testimonials = [
-      {
-        text: "A Beatriz é uma artista! Minhas sobrancelhas nunca estiveram tão perfeitas. O atendimento é impecável e o estúdio super aconchegante.",
-        author: "Fernanda Silva",
-        role: "Cliente desde 2022"
-      },
-      {
-        text: "Fiz a Nanoblading e estou apaixonada. Ficou super natural, ninguém diz que é micropigmentação. Recomendo de olhos fechados!",
-        author: "Camila Ross",
-        role: "Empresária"
-      },
-      {
-        text: "Profissionalismo e delicadeza definem. Ela entendeu exatamente o que eu queria e transformou meu olhar.",
-        author: "Juliana Mendes",
-        role: "Advogada"
-      }
-    ];
+            <p class="text-[10px] text-stone-400 uppercase tracking-[0.6em] mb-12">Luxury Beauty • Expert Academy • Elite Care</p>
 
-    // Header Scroll Logic
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('bg-brand-black/95', 'backdrop-blur-sm', 'shadow-lg', 'py-4');
-        header.classList.remove('bg-transparent', 'py-6');
-      } else {
-        header.classList.remove('bg-brand-black/95', 'backdrop-blur-sm', 'shadow-lg', 'py-4');
-        header.classList.add('bg-transparent', 'py-6');
-      }
-    });
+            <div class="w-20 h-[1px] bg-stone-200 mx-auto mb-12"></div>
 
-    // Mobile Menu Logic
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+            <p class="text-[9px] text-stone-300 uppercase tracking-[0.4em]">© 2024 Todos os Direitos Reservados</p>
 
-    function toggleMenu() {
-      mobileMenu.classList.toggle('translate-x-full');
-      mobileMenu.classList.toggle('translate-x-0');
-    }
+        </div>
 
-    mobileMenuBtn.addEventListener('click', toggleMenu);
-    closeMenuBtn.addEventListener('click', toggleMenu);
-    mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+    </footer>
 
-    // Gallery Logic
-    let currentGalleryIndex = 0;
-    const galleryBefore = document.getElementById('gallery-before');
-    const galleryAfter = document.getElementById('gallery-after');
-    const galleryLabel = document.getElementById('gallery-label');
-    const galleryDots = document.getElementById('gallery-dots');
 
-    function updateGallery() {
-      const item = galleryImages[currentGalleryIndex];
-      galleryBefore.src = item.before;
-      galleryAfter.src = item.after;
-      galleryLabel.textContent = item.label;
 
-      // Update Dots
-      galleryDots.innerHTML = galleryImages.map((_, idx) => `
-          <button onclick="setGalleryIndex(${idx})" class="w-2 h-2 rounded-full transition-all duration-300 ${idx === currentGalleryIndex ? 'bg-brand-rose w-8' : 'bg-gray-600'}"></button>
-        `).join('');
-    }
+    <!-- Scripts -->
 
-    window.setGalleryIndex = (idx) => {
-      currentGalleryIndex = idx;
-      updateGallery();
-    }
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    document.getElementById('gallery-prev').addEventListener('click', () => {
-      currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
-      updateGallery();
-    });
+    <script>
 
-    document.getElementById('gallery-next').addEventListener('click', () => {
-      currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
-      updateGallery();
-    });
+        // Inicia AOS
 
-    updateGallery(); // Init
+        AOS.init({
 
-    // Testimonials Logic
-    let currentTestimonialIndex = 0;
-    const testimonialsContainer = document.getElementById('testimonials-container');
-    const testimonialDots = document.getElementById('testimonial-dots');
+            offset: 120,
 
-    function updateTestimonials() {
-      testimonialsContainer.innerHTML = testimonials.map((item, index) => `
-          <div class="transition-all duration-700 absolute w-full left-0 top-0 ${index === currentTestimonialIndex ? 'opacity-100 translate-y-0 relative' : 'opacity-0 translate-y-8 absolute pointer-events-none'}" style="${index !== currentTestimonialIndex ? 'display: none' : ''}">
-             <p class="font-serif text-2xl md:text-3xl text-white italic leading-relaxed mb-8">"${item.text}"</p>
-             <div>
-               <h4 class="font-sans font-bold text-lg text-white uppercase tracking-wider">${item.author}</h4>
-               <p class="text-brand-rose text-sm mt-1">${item.role}</p>
-             </div>
-          </div>
-        `).join('');
+            delay: 50,
 
-      testimonialDots.innerHTML = testimonials.map((_, idx) => `
-           <button onclick="setTestimonialIndex(${idx})" class="w-3 h-3 rounded-full transition-all duration-300 ${idx === currentTestimonialIndex ? 'bg-brand-rose scale-125' : 'bg-gray-700 hover:bg-gray-500'}"></button>
-        `).join('');
-    }
+            duration: 1000,
 
-    window.setTestimonialIndex = (idx) => {
-      currentTestimonialIndex = idx;
-      updateTestimonials();
-    }
+            easing: 'ease-in-out-cubic',
 
-    // Auto cycle testimonials
-    setInterval(() => {
-      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-      updateTestimonials();
-    }, 5000);
+            once: true,
 
-    updateTestimonials(); // Init
+            mirror: false
 
-  </script>
+        });
+
+
+
+        // Efeito de Fade-in de Entrada
+
+        window.addEventListener('load', () => {
+
+            document.body.classList.add('loaded');
+
+        });
+
+
+
+        // Header scroll effect
+
+        const header = document.getElementById('main-header');
+
+        window.addEventListener('scroll', () => {
+
+            if (window.scrollY > 80) {
+
+                header.classList.add('bg-[#1A1A1A]/95', 'backdrop-blur-xl', 'py-4', 'shadow-2xl');
+
+                header.classList.remove('py-6');
+
+            } else {
+
+                header.classList.remove('bg-[#1A1A1A]/95', 'backdrop-blur-xl', 'py-4', 'shadow-2xl');
+
+                header.classList.add('py-6');
+
+            }
+
+        });
+
+
+
+        // Mobile Menu Toggle
+
+        const menuToggle = document.getElementById('menu-toggle');
+
+        const menuClose = document.getElementById('menu-close');
+
+        const overlay = document.getElementById('mobile-overlay');
+
+        const navLinks = document.querySelectorAll('.nav-link');
+
+
+
+        function toggleMenu() {
+
+            overlay.classList.toggle('hidden');
+
+            document.body.classList.toggle('overflow-hidden');
+
+        }
+
+
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        menuClose.addEventListener('click', toggleMenu);
+
+        navLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+    </script>
+
 </body>
 
 </html>
+
+
+
+Como eu faço pra colocar um video no lugar da foto hero-container
