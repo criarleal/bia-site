@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatriz Leal | Beauty & Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose-logo: #D4888C; 
+            --gold-accent: #C5A059;
+            --dark-bg: #1A1A1A;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #F9F7F2;
+            color: #333;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hero Section Otimizada */
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.7) 100%);
+            z-index: 2;
+        }
+
+        .hero-media {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 120px 1.5rem 60px;
+        }
+
+        .rose-button {
+            background-color: var(--rose-logo);
+            transition: all 0.3s ease;
+        }
+        .rose-button:hover {
+            background-color: #bc767a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 136, 140, 0.4);
+        }
+
+        .card-service {
+            background: #FFF;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            border-top: 3px solid transparent;
+        }
+        .card-service:hover {
+            transform: translateY(-5px);
+            border-top: 3px solid var(--rose-logo);
+        }
+        .section-light {
+            background-color: #FDFCF9;
+        }
+
+        /* Imagem Sobre - Responsiva */
+        .profile-img-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 450px;
+        }
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: -15px;
+            bottom: -15px;
+            border: 2px solid var(--rose-logo);
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .profile-img-container::before {
+                top: 10px;
+                left: 10px;
+                right: -10px;
+                bottom: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-[#1A1A1A]/95 backdrop-blur-md border-b border-stone-800">
+        <nav class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/469267727_18039234656255340_6460683776454478996_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=MzIyMTA2MjAxNzUzNDk3MjUyNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=vh_K26jf0pgQ7kNvwGkBQS_&_nc_oc=AdkM0SYOFCPgVshv1qyHvMm6DE6ar6rFpPJ4tMWZm7GKPHWCwpAym7T0tv-JJuO0LFi8kgWhRcRjZZcr0ErrO68-&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=f6N6pwjvTyVelaD6wpTCTA&_nc_ss=8&oh=00_Afxedya0t6yGpInDQfkDzBysb2bhPFpGzIGxED9OQ1OF7g&oe=69B43E5C" alt="Beatriz Leal Logo" class="h-10 md:h-14 object-contain">
+            </div>
+            
+            <div class="hidden lg:flex space-x-8 text-[10px] uppercase tracking-[0.2em] font-semibold text-white">
+                <a href="#inicio" class="hover:text-[#D4888C] transition-colors">Início</a>
+                <a href="#servicos" class="hover:text-[#D4888C] transition-colors">Procedimentos</a>
+                <a href="#sobre" class="hover:text-[#D4888C] transition-colors">A Especialista</a>
+                <a href="#contato" class="hover:text-[#D4888C] transition-colors">Contato</a>
+            </div>
+            
+            <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1?autoload=1&app_absent=0" target="_blank" class="rose-button text-white px-4 md:px-6 py-2 rounded text-[10px] uppercase tracking-widest font-bold shadow-md">Agendar</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-container">
+        <img src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/469267084_18039240899255340_161286560798501958_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzM0MzIxNDY1MzUzMjUzMTA2Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=EN-eaNmCtsMQ7kNvwEVhMkq&_nc_oc=Adnl61VdwjWbVBFCYt25MJpQgQo0yy-wGJQJUPYZp5Tb7knKZkwwyGIZMRUzBoT_c7YCCrw4HurIj3c0ES2oyi8I&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=HXb_dXcB_YoA-akcgsA96g&_nc_ss=8&oh=00_AfzpQFqKIxM3sH0FzkIEhNqTm2trVilCIVCYBkLRpmZMoA&oe=69B43D5C" alt="Estética de Luxo" class="hero-media">
+        
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content max-w-5xl px-6">
+            <span class="inline-block mb-4 md:mb-6 px-4 py-1.5 border border-white/40 rounded-full text-[9px] md:text-[10px] uppercase tracking-[0.4em] backdrop-blur-md bg-white/5">Beauty & Academy</span>
+            <h1 class="text-4xl md:text-6xl lg:text-8xl mb-6 md:mb-8 tracking-tight serif leading-tight">A arte de realçar sua <br><span class="italic font-light">essência</span></h1>
+            <p class="text-base md:text-xl mb-8 md:mb-12 font-light tracking-wide opacity-95 max-w-2xl mx-auto leading-relaxed px-4">Especialista em Micropigmentação e Design de Sobrancelhas. Transformando olhares com naturalidade e precisão em Curitiba.</p>
+            <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
+                <a href="#servicos" class="rose-button w-full sm:w-auto px-10 md:px-12 py-4 md:py-5 rounded-full text-xs uppercase tracking-widest font-bold shadow-lg">Serviços</a>
+                <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1?autoload=1&app_absent=0" target="_blank" class="bg-white/10 backdrop-blur-xl border border-white/30 hover:bg-white hover:text-black w-full sm:w-auto px-10 md:px-12 py-4 md:py-5 rounded-full text-xs uppercase tracking-widest font-bold transition-all">WhatsApp Oficial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missão -->
+    <section class="py-16 md:py-24 section-light text-center px-6">
+        <div class="container mx-auto max-w-3xl">
+            <div class="mb-4 md:mb-6 flex justify-center">
+                <div class="w-8 md:w-12 h-[1px] bg-[#D4888C] self-center"></div>
+                <span class="text-[#D4888C] uppercase tracking-[0.4em] text-[9px] md:text-[10px] font-bold px-4">Filosofia de Trabalho</span>
+                <div class="w-8 md:w-12 h-[1px] bg-[#D4888C] self-center"></div>
+            </div>
+            <h2 class="text-3xl md:text-4xl mb-6 md:mb-8 serif italic text-stone-800">Minha Missão</h2>
+            <p class="text-stone-600 leading-relaxed mb-6 md:mb-8 text-lg md:text-xl serif italic font-light px-2 md:px-4">
+                "Valorizar cada detalhe para proporcionar um olhar que expresse sua verdadeira essência, unindo técnica avançada e sensibilidade artística."
+            </p>
+            <p class="text-stone-500 font-light max-w-xl mx-auto leading-loose text-sm">
+                Com certificações internacionais e 4 premiações de destaque, o espaço Beatriz Leal Beauty & Academy é referência em resultados naturais e personalizados em Curitiba.
+            </p>
+        </div>
+    </section>
+
+    <!-- Procedimentos -->
+    <section id="servicos" class="py-16 md:py-24 bg-[#F2EDE9] px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl serif tracking-tight text-stone-800">Protocolos Exclusivos</h2>
+                <div class="mt-4 w-12 h-1 bg-[#D4888C] mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+                <div class="card-service p-8 md:p-10 shadow-sm group text-center border border-stone-100">
+                    <h3 class="text-xl md:text-2xl mb-6 serif border-b pb-4 border-stone-100 text-stone-800 uppercase tracking-wider">Micropigmentação</h3>
+                    <ul class="text-stone-500 space-y-4 text-sm font-light inline-block text-left">
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Nanoblading Flow</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Shadow Line</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Neutralização</li>
+                    </ul>
+                </div>
+                <div class="card-service p-8 md:p-10 shadow-sm group text-center border border-stone-100">
+                    <h3 class="text-xl md:text-2xl mb-6 serif border-b pb-4 border-stone-100 text-stone-800 uppercase tracking-wider">Cílios & Sobrancelhas</h3>
+                    <ul class="text-stone-500 space-y-4 text-sm font-light inline-block text-left">
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Lash Lifting</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Brow Lamination</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Design Estratégico</li>
+                    </ul>
+                </div>
+                <div class="card-service p-8 md:p-10 shadow-sm group text-center border border-stone-100 md:col-span-2 lg:col-span-1">
+                    <h3 class="text-xl md:text-2xl mb-6 serif border-b pb-4 border-stone-100 text-stone-800 uppercase tracking-wider">Estética Labial</h3>
+                    <ul class="text-stone-500 space-y-4 text-sm font-light inline-block text-left">
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Hydra Gloss</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Revitalização Labial</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span> Neutralização Labial</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Beatriz Leal (Revisão de Responsividade) -->
+    <section id="sobre" class="py-16 md:py-32 section-light px-6 overflow-hidden">
+        <div class="container mx-auto">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+                <!-- Coluna Imagem -->
+                <div class="w-full lg:w-1/2 flex justify-center lg:justify-end pr-0 lg:pr-8">
+                    <div class="profile-img-container">
+                        <img src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/363303225_17984827493255340_8795290345032083822_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzE1NTA0OTE3NzMxMzMyNDQ3NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=GL_ocnAQ7vIQ7kNvwEiaRTd&_nc_oc=AdkurKYrb4HUWfhHbJTKz0qHBNGy1Z32quCG9pYwcc7MstXKx5jZV3CnaR70rC0Gprx2ohxyTr05dxLCvsbDtGYH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=X8VJc7MQeowKXCXovYcPlQ&_nc_ss=8&oh=00_AfyUot_4VqAEZuhK4nragUcdsVNk3of-KCp0iI8P-rXAuQ&oe=69B443E6" alt="Beatriz Leal" class="relative z-10 w-full rounded-sm shadow-2xl">
+                    </div>
+                </div>
+                
+                <!-- Coluna Texto -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left">
+                    <span class="text-[#D4888C] uppercase tracking-[0.4em] text-[10px] font-bold mb-4 block">Fundadora & Master</span>
+                    <h2 class="text-4xl md:text-5xl mb-6 md:mb-8 serif tracking-tight text-stone-800">Beatriz Leal</h2>
+                    <div class="space-y-6 text-stone-600 leading-relaxed font-light text-sm md:text-base">
+                        <p>
+                            Referência em estética avançada, Beatriz Leal dedica-se a transformar a vida de mulheres através da recuperação da autoestima. Com formação internacional, ela une ciência e arte em cada procedimento.
+                        </p>
+                        <p>
+                            À frente da <strong>Beauty & Academy</strong>, Beatriz não apenas realiza atendimentos, mas também forma novas profissionais, compartilhando o padrão de excelência que a tornou premiada 4 vezes consecutivas.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-row justify-center lg:justify-start gap-8 md:gap-12 mt-10 mb-12">
+                        <div>
+                            <h4 class="font-bold text-2xl md:text-3xl serif text-[#D4888C]">+2.000</h4>
+                            <p class="text-[9px] text-stone-400 uppercase tracking-widest font-bold">Procedimentos</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-2xl md:text-3xl serif text-[#D4888C]">Academy</h4>
+                            <p class="text-[9px] text-stone-400 uppercase tracking-widest font-bold">Cursos & Mentorias</p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center lg:justify-start">
+                        <a href="https://www.instagram.com/bialeal.beauty/" target="_blank" class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-stone-800 group border border-stone-200 pr-6 rounded-full hover:bg-stone-50 transition-all">
+                            <span class="bg-[#D4888C] text-white p-3 rounded-full group-hover:scale-110 transition-transform shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            </span>
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-16 md:py-24 bg-stone-900 text-white px-4 md:px-6">
+        <div class="container mx-auto">
+            <div class="bg-stone-800/30 rounded-3xl p-8 md:p-16 lg:p-20 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center border border-stone-800">
+                <div class="w-full lg:w-1/2 text-center lg:text-left">
+                    <h2 class="text-3xl md:text-4xl serif mb-6 md:mb-10 tracking-tight">Agende seu horário</h2>
+                    <div class="space-y-10">
+                        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+                            <div class="text-[#D4888C]">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2 tracking-wide uppercase text-xs text-[#D4888C]">Atendimento em Curitiba</h4>
+                                <p class="text-stone-400 text-sm font-light">Espaço exclusivo para seu conforto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2 bg-white rounded-3xl p-8 md:p-14 text-center shadow-2xl">
+                    <div class="flex justify-center mb-6">
+                         <img src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/469198714_18039234635255340_5999627307309235169_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=MzIyMTA2MjAxNzUyNjc2NzU0OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=1K37ScYY5FYQ7kNvwEdSAIG&_nc_oc=Adka-oXPL3hBg3Gi3OveeB4A58lRIjRsVnzqP-12XBIsxghCBd-XQ7buA4pRvDVTlpegveRkhu8gKoIq65EV8Xwv&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=f6N6pwjvTyVelaD6wpTCTA&_nc_ss=8&oh=00_AfzeKrO-SAqOk-V51qmsUYMfW5OYcYQz1A0OSL-zDb1_NA&oe=69B43784" alt="Logo" class="h-10 md:h-12 brightness-0">
+                    </div>
+                    <h3 class="text-xl md:text-2xl serif text-stone-800 mb-4">Inicie sua jornada</h3>
+                    <p class="text-stone-500 mb-8 md:mb-10 text-sm leading-relaxed font-light">Agende sua avaliação pelo WhatsApp oficial.</p>
+                    <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1?autoload=1&app_absent=0" target="_blank" class="rose-button block w-full py-4 md:py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs text-white shadow-xl shadow-rose-200">Conversar agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 md:py-20 bg-white text-center border-t border-stone-100 px-6">
+        <div class="container mx-auto">
+            <p class="text-stone-400 text-[9px] md:text-[10px] tracking-[0.3em] md:tracking-[0.5em] uppercase mb-10 md:mb-12">Sobrancelhas • Micropigmentação • Academy</p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-y-6 md:gap-x-12 mb-12">
+                <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1?autoload=1&app_absent=0" target="_blank" class="text-stone-400 hover:text-[#D4888C] text-[11px] font-bold uppercase tracking-widest transition-colors">WhatsApp</a>
+                <a href="https://linktr.ee/beatriz.leal" target="_blank" class="text-[#D4888C] hover:text-[#bc767a] text-[11px] font-bold uppercase tracking-widest transition-colors flex items-center gap-2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    Todas as minhas redes
+                </a>
+            </div>
+            <p class="text-[9px] text-stone-300 uppercase tracking-[0.3em]">© 2024 Beatriz Leal Beauty & Academy.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
