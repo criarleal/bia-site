@@ -4,13 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatriz Leal | Beauty & Academy</title>
+
+    <title>Micropigmentação em Curitiba | Design de Sobrancelhas - Beatriz Leal Beauty</title>
+
+    <meta name="description"
+        content="Especialista em micropigmentação em Curitiba. Design de sobrancelhas, brow lamination, lash lifting e estética labial. Atendimento exclusivo com Beatriz Leal.">
+
+    <meta name="keywords"
+        content="micropigmentação curitiba, sobrancelhas curitiba, designer de sobrancelhas curitiba, brow lamination curitiba, lash lifting curitiba, micropigmentação labial curitiba">
+
+    <meta name="author" content="Beatriz Leal Beauty">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://criarleal.github.io/bia-site/">
+
     <link rel="icon" type="image/png" href="https://criarleal.github.io/bia-site/favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Micropigmentação em Curitiba | Beatriz Leal Beauty">
+    <meta property="og:description"
+        content="Especialista em micropigmentação, design de sobrancelhas e estética avançada em Curitiba.">
+    <meta property="og:image" content="https://criarleal.github.io/bia-site/og-image.jpg">
+    <meta property="og:url" content="https://criarleal.github.io/bia-site/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Micropigmentação em Curitiba | Beatriz Leal Beauty">
+    <meta name="twitter:description"
+        content="Especialista em micropigmentação, design de sobrancelhas e estética avançada em Curitiba.">
+
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- SEO LOCAL STRUCTURED DATA -->
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BeautySalon",
+ "name": "Beatriz Leal Micropigmentação",
+ "image": "https://criarleal.github.io/bia-site/og-image.jpg",
+ "url": "https://criarleal.github.io/bia-site/",
+ "address": {
+   "@type": "PostalAddress",
+   "addressLocality": "Curitiba",
+   "addressRegion": "PR",
+   "addressCountry": "BR"
+ },
+ "areaServed": "Curitiba",
+ "service": [
+   "Micropigmentação de sobrancelhas",
+   "Brow Lamination",
+   "Lash Lifting",
+   "Micropigmentação Labial"
+ ]
+}
+</script>
     <style>
         :root {
             --rose-logo: #D4888C;
@@ -154,268 +214,296 @@
 </head>
 
 <body class="antialiased">
+    <main>
 
-    <header class="fixed w-full z-50 transition-all duration-700" id="main-header">
-        <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
-            <div class="flex items-center" data-aos="fade-right" data-aos-duration="1000">
-                <div class="text-white font-bold tracking-tighter text-2xl serif">
-                    BEATRIZ LEAL<span class="text-[#D4888C]">.</span>
-                </div>
-            </div>
-
-            <div class="hidden lg:flex space-x-10 text-[11px] uppercase tracking-[0.4em] font-semibold text-white/80">
-                <a href="#inicio" class="hover:text-[#D4888C] transition-all duration-300">Início</a>
-                <a href="#servicos" class="hover:text-[#D4888C] transition-all duration-300">Procedimentos</a>
-                <a href="#sobre" class="hover:text-[#D4888C] transition-all duration-300">Sobre</a>
-                <a href="#contato" class="hover:text-[#D4888C] transition-all duration-300">Contato</a>
-            </div>
-
-            <div class="flex items-center gap-4" data-aos="fade-left" data-aos-duration="1000">
-                <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
-                    class="rose-button text-white px-8 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hidden sm:block">Agendar</a>
-                <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <div id="mobile-overlay"
-        class="fixed inset-0 bg-black/98 z-[60] flex flex-col items-center justify-center space-y-10 text-white uppercase tracking-[0.5em] text-sm hidden">
-        <button id="menu-close" class="absolute top-8 right-8 text-white">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-        <a href="#inicio" class="nav-link hover:text-[#D4888C]">Início</a>
-        <a href="#servicos" class="nav-link hover:text-[#D4888C]">Procedimentos</a>
-        <a href="#sobre" class="nav-link hover:text-[#D4888C]">Sobre</a>
-        <a href="#contato" class="nav-link hover:text-[#D4888C]">Contato</a>
-    </div>
-
-    <section id="inicio" class="hero-container">
-        <video autoplay muted loop playsinline class="hero-media">
-            <source
-                src="https://criarleal.github.io/bia-site/video.mp4"
-                type="video/mp4">
-            Seu navegador não suporta vídeos.
-        </video>
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content max-w-5xl px-6">
-            <div data-aos="fade-up" data-aos-duration="1500">
-                <span
-                    class="inline-block mb-8 px-6 py-2 border border-white/20 rounded-full text-[10px] uppercase tracking-[0.6em] backdrop-blur-md bg-white/5">Curitiba
-                    • PR</span>
-                <h1 class="text-5xl md:text-7xl lg:text-9xl mb-10 tracking-tight serif leading-[1.05]">Realçando
-                    sua<br><span class="italic font-light">beleza única</span></h1>
-                <p
-                    class="text-lg md:text-xl mb-14 font-light tracking-widest opacity-80 max-w-2xl mx-auto leading-relaxed">
-                    Referência em Micropigmentação e Estética Avançada.</p>
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="#servicos"
-                        class="rose-button w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold shadow-2xl">Procedimentos</a>
-                    <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
-                        class="bg-white/5 backdrop-blur-xl border border-white/20 hover:bg-white hover:text-black w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold transition-all duration-500">Atendimento
-                        VIP</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32 bg-white text-center px-6">
-        <div class="container mx-auto max-w-4xl" data-aos="fade-up" data-aos-duration="1200">
-            <div class="mb-10 flex justify-center items-center gap-6">
-                <div class="w-16 h-[1px] bg-[#D4888C]"></div>
-                <span class="text-[#D4888C] uppercase tracking-[0.5em] text-[10px] font-bold">A Filosofia</span>
-                <div class="w-16 h-[1px] bg-[#D4888C]"></div>
-            </div>
-            <h2 class="text-4xl md:text-6xl mb-12 serif italic text-stone-800">Cuidado em cada traço</h2>
-            <p class="text-stone-600 leading-relaxed mb-12 text-2xl md:text-3xl serif italic font-light px-4">
-                "Minha missão é unir técnica de ponta com a sensibilidade para revelar a melhor versão de cada mulher."
-            </p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-stone-100">
-                <div data-aos="zoom-in" data-aos-delay="100">
-                    <h4 class="text-3xl serif text-[#D4888C]">4x</h4>
-                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Premiada</p>
-                </div>
-                <div data-aos="zoom-in" data-aos-delay="200">
-                    <h4 class="text-3xl serif text-[#D4888C]">Int.</h4>
-                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Certificação</p>
-                </div>
-                <div data-aos="zoom-in" data-aos-delay="300">
-                    <h4 class="text-3xl serif text-[#D4888C]">+2k</h4>
-                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Atendimentos</p>
-                </div>
-                <div data-aos="zoom-in" data-aos-delay="400">
-                    <h4 class="text-3xl serif text-[#D4888C]">Luxo</h4>
-                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Experiência</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicos" class="py-32 bg-[#F2EDE9] px-6">
-        <div class="container mx-auto">
-            <div class="text-center mb-20" data-aos="fade-down">
-                <h2 class="text-5xl serif tracking-tight text-stone-800">Protocolos Master</h2>
-                <p class="text-stone-400 text-[11px] mt-4 font-light tracking-[0.4em] uppercase">Especialidades Beatriz
-                    Leal</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
-                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Micropigmentação</h3>
-                    <ul class="text-stone-500 space-y-5 text-sm font-light">
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                            Nanoblading Flow</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                            Shadow Line Premium</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                            Neutralização</li>
-                    </ul>
-                </div>
-
-                <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
-                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Olhar & Design</h3>
-                    <ul class="text-stone-500 space-y-5 text-sm font-light">
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                            Lash Lifting Master</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                            Brow Lamination</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                            Design Estratégico</li>
-                    </ul>
-                </div>
-
-                <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
-                        <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Estética Labial</h3>
-                    <ul class="text-stone-500 space-y-5 text-sm font-light">
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                            Hydra Gloss VIP</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                            Revitalização Labial</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                            Neutralização Labial</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="sobre" class="py-32 bg-white px-6">
-        <div class="container mx-auto">
-            <div class="flex flex-col lg:flex-row items-center gap-20">
-                <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-right">
-                    <div class="profile-img-container">
-                        <img src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/363303225_17984827493255340_8795290345032083822_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzE1NTA0OTE3NzMxMzMyNDQ3NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=GL_ocnAQ7vIQ7kNvwEiaRTd&_nc_oc=AdkurKYrb4HUWfhHbJTKz0qHBNGy1Z32quCG9pYwcc7MstXKx5jZV3CnaR70rC0Gprx2ohxyTr05dxLCvsbDtGYH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=X8VJc7MQeowKXCXovYcPlQ&_nc_ss=8&oh=00_AfyUot_4VqAEZuhK4nragUcdsVNk3of-KCp0iI8P-rXAuQ&oe=69B443E6"
-                            alt="Beatriz Leal"
-                            class="relative z-10 w-full rounded shadow-2xl overflow-hidden grayscale-[20%] hover:grayscale-0 transition-all duration-1000">
-                    </div>
-                </div>
-
-                <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-left">
-                    <span class="text-[#D4888C] uppercase tracking-[0.5em] text-[11px] font-bold mb-6 block">The Academy
-                        & Founder</span>
-                    <h2 class="text-5xl md:text-7xl mb-10 serif tracking-tight text-stone-800">Beatriz Leal</h2>
-                    <div class="space-y-8 text-stone-500 leading-relaxed font-light text-lg">
-                        <p>
-                            Especialista em visagismo e micropigmentação avançada, Beatriz Leal construiu uma carreira
-                            sólida baseada na perfeição técnica e no atendimento humanizado.
-                        </p>
-                        <p>
-                            À frente da sua própria academia, forma anualmente centenas de profissionais que buscam o
-                            "Padrão Leal" de excelência, elevando o nível do mercado de estética nacional.
-                        </p>
-                    </div>
-
-                    <div class="flex justify-center lg:justify-start mt-12">
-                        <a href="https://www.instagram.com/bialeal.beauty/" target="_blank"
-                            class="inline-flex items-center gap-5 text-xs font-bold uppercase tracking-[0.3em] text-stone-800 group border border-stone-100 pr-10 rounded-full hover:bg-stone-50 transition-all duration-500">
-                            <span
-                                class="bg-[#D4888C] text-white p-5 rounded-full group-hover:bg-[#bc767a] transition-all shadow-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                            </span>
-                            Instagram Profissional
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contato" class="py-32 bg-stone-900 text-white px-6">
-        <div class="container mx-auto">
-            <div class="max-w-6xl mx-auto bg-white/5 rounded-[50px] p-10 md:p-24 flex flex-col lg:flex-row gap-20 items-center border border-white/10"
-                data-aos="zoom-in-up">
-                <div class="w-full lg:w-1/2 text-center lg:text-left">
-                    <h2 class="text-4xl md:text-6xl serif mb-12 tracking-tight">Sua jornada VIP <br><span
-                            class="italic font-light opacity-60">começa aqui</span></h2>
-                    <div class="space-y-10">
-                        <div class="flex items-center gap-6 justify-center lg:justify-start group">
-                            <div
-                                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-[#D4888C] group-hover:bg-[#D4888C] group-hover:text-white transition-all">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                    <circle cx="12" cy="10" r="3" />
-                                </svg>
-                            </div>
-                            <span class="text-sm tracking-widest uppercase font-light">Curitiba, PR • Studio
-                                Exclusivo</span>
-                        </div>
+        <header class="fixed w-full z-50 transition-all duration-700" id="main-header">
+            <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
+                <div class="flex items-center" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="text-white font-bold tracking-tighter text-2xl serif">
+                        BEATRIZ LEAL<span class="text-[#D4888C]">.</span>
                     </div>
                 </div>
 
                 <div
-                    class="w-full lg:w-1/2 bg-white rounded-[40px] p-12 md:p-20 text-center shadow-3xl text-stone-800 relative">
-                    <h3 class="text-3xl serif mb-6">Solicitar Avaliação</h3>
-                    <p class="text-stone-500 mb-12 text-base font-light">Atendimento personalizado com horários
-                        limitados para garantir a máxima exclusividade.</p>
+                    class="hidden lg:flex space-x-10 text-[11px] uppercase tracking-[0.4em] font-semibold text-white/80">
+                    <a href="#inicio" class="hover:text-[#D4888C] transition-all duration-300">Início</a>
+                    <a href="#servicos" class="hover:text-[#D4888C] transition-all duration-300">Procedimentos</a>
+                    <a href="#sobre" class="hover:text-[#D4888C] transition-all duration-300">Sobre</a>
+                    <a href="#contato" class="hover:text-[#D4888C] transition-all duration-300">Contato</a>
+                </div>
+
+                <div class="flex items-center gap-4" data-aos="fade-left" data-aos-duration="1000">
                     <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
-                        class="rose-button block w-full py-6 rounded-full font-bold uppercase tracking-[0.3em] text-[11px] text-white">Falar
-                        com Consultora</a>
+                        class="rose-button text-white px-8 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hidden sm:block">Agendar</a>
+                    <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <div id="mobile-overlay"
+            class="fixed inset-0 bg-black/98 z-[60] flex flex-col items-center justify-center space-y-10 text-white uppercase tracking-[0.5em] text-sm hidden">
+            <button id="menu-close" class="absolute top-8 right-8 text-white">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <a href="#inicio" class="nav-link hover:text-[#D4888C]">Início</a>
+            <a href="#servicos" class="nav-link hover:text-[#D4888C]">Procedimentos</a>
+            <a href="#sobre" class="nav-link hover:text-[#D4888C]">Sobre</a>
+            <a href="#contato" class="nav-link hover:text-[#D4888C]">Contato</a>
+        </div>
+
+        <section id="inicio" class="hero-container">
+            <video autoplay muted loop playsinline preload="none" class="hero-media">
+                <source src="https://criarleal.github.io/bia-site/video.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content max-w-5xl px-6">
+                <div data-aos="fade-up" data-aos-duration="1500">
+                    <span
+                        class="inline-block mb-8 px-6 py-2 border border-white/20 rounded-full text-[10px] uppercase tracking-[0.6em] backdrop-blur-md bg-white/5">Curitiba
+                        • PR</span>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl mb-10 tracking-tight serif leading-[1.1]">
+                        Micropigmentação em Curitiba<br>
+                        <span class="italic font-light">Arte e técnica para sobrancelhas naturalmente perfeitas</span>
+                    </h1>
+                    <p
+                        class="text-lg md:text-xl mb-14 font-light tracking-widest opacity-80 max-w-2xl mx-auto leading-relaxed">
+                        Atendimento personalizado com técnicas modernas
+                        para realçar sua beleza de forma natural.</p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                        <a href="#servicos"
+                            class="rose-button w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold shadow-2xl">Procedimentos</a>
+                        <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
+                            class="bg-white/5 backdrop-blur-xl border border-white/20 hover:bg-white hover:text-black w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold transition-all duration-500">Atendimento
+                            VIP</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="py-32 bg-white text-center px-6">
+            <div class="container mx-auto max-w-4xl" data-aos="fade-up" data-aos-duration="1200">
+                <div class="mb-10 flex justify-center items-center gap-6">
+                    <div class="w-16 h-[1px] bg-[#D4888C]"></div>
+                    <span class="text-[#D4888C] uppercase tracking-[0.5em] text-[10px] font-bold">A Filosofia</span>
+                    <div class="w-16 h-[1px] bg-[#D4888C]"></div>
+                </div>
+                <h2 class="text-4xl md:text-6xl mb-12 serif italic text-stone-800">Naturalidade acima de tudo</h2>
+                <p class="text-stone-600 leading-relaxed mb-12 text-2xl md:text-3xl serif italic font-light px-4">
+                    Cada procedimento é pensado para valorizar
+                    sua expressão natural e realçar sua beleza
+                    com harmonia e precisão.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-stone-100">
+                    <div data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="text-3xl serif text-[#D4888C]">4x</h4>
+                        <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Premiada</p>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-delay="200">
+                        <h4 class="text-3xl serif text-[#D4888C]">Int.</h4>
+                        <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Certificação</p>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-delay="300">
+                        <h4 class="text-3xl serif text-[#D4888C]">+2k</h4>
+                        <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Atendimentos</p>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-delay="400">
+                        <h4 class="text-3xl serif text-[#D4888C]">Luxo</h4>
+                        <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Experiência</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="py-32 bg-[#F2EDE9] px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-20" data-aos="fade-down">
+                    <h2 class="text-5xl serif tracking-tight text-stone-800">Procedimentos Especializados</h2>
+                    <p class="text-stone-400 text-[11px] mt-4 font-light tracking-[0.4em] uppercase">Especialidades
+                        Beatriz
+                        Leal</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
+                            <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Micropigmentação</h3>
+                        <ul class="text-stone-500 space-y-5 text-sm font-light">
+                            <li class="flex items-center gap-4"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                                Nanoblading Flow</li>
+                            <li class="flex items-center gap-4"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                                Shadow Line Premium</li>
+                            <li class="flex items-center gap-4"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                                Neutralização</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
+                            <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Olhar & Design</h3>
+                        <ul class="text-stone-500 space-y-5 text-sm font-light">
+                            <li class="flex items-center gap-4"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                                Lash Lifting Master</li>
+                            <li class="flex items-center gap-4"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                                Brow Lamination</li>
+                            <li class="flex items-center gap-4"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                                Design Estratégico</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
+                            <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Estética Labial</h3>
+                        <ul class="text-stone-500 space-y-5 text-sm font-light">
+                            <li class="flex items-center gap-4"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                                Hydra Gloss VIP</li>
+                            <li class="flex items-center gap-4"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                                Revitalização Labial</li>
+                            <li class="flex items-center gap-4"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
+                                Neutralização Labial</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="py-32 bg-white px-6">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-20">
+                    <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-right">
+                        <div class="profile-img-container">
+                            <img loading="lazy"
+                                src="https://instagram.fcwb2-3.fna.fbcdn.net/v/t39.30808-6/363303225_17984827493255340_8795290345032083822_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzE1NTA0OTE3NzMxMzMyNDQ3NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=GL_ocnAQ7vIQ7kNvwEiaRTd&_nc_oc=AdkurKYrb4HUWfhHbJTKz0qHBNGy1Z32quCG9pYwcc7MstXKx5jZV3CnaR70rC0Gprx2ohxyTr05dxLCvsbDtGYH&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcwb2-3.fna&_nc_gid=X8VJc7MQeowKXCXovYcPlQ&_nc_ss=8&oh=00_AfyUot_4VqAEZuhK4nragUcdsVNk3of-KCp0iI8P-rXAuQ&oe=69B443E6"
+                                alt="Beatriz Leal especialista em micropigmentação e design de sobrancelhas em Curitiba"
+                                class="relative z-10 w-full rounded shadow-2xl overflow-hidden grayscale-[20%] hover:grayscale-0 transition-all duration-1000">
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-left">
+
+                        <h2 class="text-3xl md:text-5xl mb-8 serif tracking-tight text-stone-800">
+                            Beatriz Leal
+                        </h2>
+
+                        <div class="space-y-6 text-stone-600 leading-relaxed font-light text-lg max-w-xl">
+                            <p>
+                                Especialista em micropigmentação e estética do olhar.
+                            </p>
+
+                            <p>
+                                Com anos de experiência e formação contínua nas principais técnicas da área, meu
+                                trabalho é focado em realçar a
+                                beleza natural de cada cliente com resultados elegantes e harmônicos.
+                            </p>
+
+                            <p>
+                                Além do meu atendimento exclusivo em Curitiba eu também formo profissionais
+                                através da minha academia,
+                                compartilhando conhecimento e elevando o padrão da micropigmentação no mercado.
+                            </p>
+                        </div>
+
+                        <div class="flex justify-center lg:justify-start mt-12">
+                            <a href="https://www.instagram.com/bialeal.beauty/" target="_blank"
+                                class="inline-flex items-center gap-5 text-xs font-bold uppercase tracking-[0.3em] text-stone-800 group border border-stone-100 pr-10 rounded-full hover:bg-stone-50 transition-all duration-500">
+                                <span
+                                    class="bg-[#D4888C] text-white p-5 rounded-full group-hover:bg-[#bc767a] transition-all shadow-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </span>
+                                Instagram Profissional
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="py-32 bg-stone-900 text-white px-6">
+            <div class="container mx-auto">
+                <div class="max-w-6xl mx-auto bg-white/5 rounded-[50px] p-10 md:p-24 flex flex-col lg:flex-row gap-20 items-center border border-white/10"
+                    data-aos="zoom-in-up">
+                    <div class="w-full lg:w-1/2 text-center lg:text-left">
+                        <h2 class="text-4xl md:text-6xl serif mb-12 tracking-tight">Agende sua<br><span
+                                class="italic font-light opacity-60">avaliação personalizada</span></h2>
+                        <div class="space-y-10">
+                            <div class="flex items-center gap-6 justify-center lg:justify-start group">
+                                <div
+                                    class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-[#D4888C] group-hover:bg-[#D4888C] group-hover:text-white transition-all">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                </div>
+                                <span class="text-sm tracking-widest uppercase font-light">R. Antônio Olívio Rodrigues -
+                                    346 - Capão da Imbuia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full lg:w-1/2 bg-white rounded-[40px] p-12 md:p-20 text-center shadow-3xl text-stone-800 relative">
+                        <h3 class="text-3xl serif mb-6">Seu atendimento exclusivo começa aqui</h3>
+                        <p class="text-stone-500 mb-12 text-base font-light">em Curitiba,
+                            com horários limitados para garantir
+                            a melhor experiência.</p>
+                        <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
+                            class="rose-button block w-full py-6 rounded-full font-bold uppercase tracking-[0.3em] text-[11px] text-white">Agendar
+                            agora</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="py-24 bg-[#F9F7F2] text-center px-6">
         <div class="container mx-auto" data-aos="fade-up">
             <div class="text-3xl serif mb-12 text-stone-800 tracking-tighter">BEATRIZ LEAL</div>
-            <p class="text-[10px] text-stone-400 uppercase tracking-[0.6em] mb-12">Luxury Beauty • Expert Academy •
-                Elite Care</p>
+            <p class="text-[10px] text-stone-400 uppercase tracking-[0.6em] mb-12">Micropigmentação • Estética do Olhar
+                • Beleza Natural</p>
             <div class="w-20 h-[1px] bg-stone-200 mx-auto mb-12"></div>
             <p class="text-[9px] text-stone-300 uppercase tracking-[0.4em]">© 2026 Todos os Direitos Reservados</p>
         </div>
@@ -464,11 +552,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
