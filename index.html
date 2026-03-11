@@ -38,7 +38,6 @@
     <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
@@ -51,26 +50,27 @@
     <!-- SEO LOCAL STRUCTURED DATA -->
     <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "BeautySalon",
- "name": "Beatriz Leal Micropigmentação",
- "image": "https://criarleal.github.io/bia-site/og-image.jpg",
- "url": "https://criarleal.github.io/bia-site/",
- "address": {
-   "@type": "PostalAddress",
-   "addressLocality": "Curitiba",
-   "addressRegion": "PR",
-   "addressCountry": "BR"
- },
- "areaServed": "Curitiba",
- "service": [
-   "Micropigmentação de sobrancelhas",
-   "Brow Lamination",
-   "Lash Lifting",
-   "Micropigmentação Labial"
- ]
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Beatriz Leal Micropigmentação",
+  "image": "https://criarleal.github.io/bia-site/og-image.jpg",
+  "url": "https://criarleal.github.io/bia-site/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Curitiba",
+    "addressRegion": "PR",
+    "addressCountry": "BR"
+  },
+  "areaServed": "Curitiba",
+  "service": [
+    "Micropigmentação de sobrancelhas",
+    "Brow Lamination",
+    "Lash Lifting",
+    "Micropigmentação Labial"
+  ]
 }
-</script>
+    </script>
+
     <style>
         :root {
             --rose-logo: #D4888C;
@@ -84,6 +84,8 @@
             color: #333;
             opacity: 0;
             transition: opacity 1.5s ease;
+            /* Impede overflow horizontal em mobile */
+            overflow-x: hidden;
         }
 
         body.loaded {
@@ -97,7 +99,9 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Hero Section com Vídeo */
+        /* =====================
+           HERO
+        ===================== */
         .hero-container {
             position: relative;
             min-height: 100vh;
@@ -107,7 +111,6 @@
             align-items: center;
             justify-content: center;
             background-color: #000;
-            /* Fundo preto para evitar flash branco no load */
         }
 
         .hero-overlay {
@@ -116,7 +119,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.8) 100%);
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.55) 0%,
+                    rgba(0, 0, 0, 0.35) 50%,
+                    rgba(0, 0, 0, 0.85) 100%);
             z-index: 2;
         }
 
@@ -127,9 +133,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Faz o vídeo cobrir tudo sem esticar */
             z-index: 1;
-            /* Removida a animação de zoom para não conflitar com o movimento do vídeo */
         }
 
         .hero-content {
@@ -137,9 +141,40 @@
             z-index: 10;
             text-align: center;
             color: white;
+            /* Padding lateral garante que nada saia da tela */
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        /* Botão Premium */
+        /* =====================
+           TIPOGRAFIA HERO — responsiva com clamp()
+           Mobile: ~28px → Desktop: ~72px
+        ===================== */
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 5vw, 4.5rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.875rem, 2vw, 1.25rem);
+            line-height: 1.7;
+            letter-spacing: 0.1em;
+        }
+
+        /* Badge "Curitiba • PR" */
+        .hero-badge {
+            font-size: clamp(0.6rem, 1.5vw, 0.625rem);
+            letter-spacing: 0.5em;
+        }
+
+        /* =====================
+           BOTÃO PREMIUM
+        ===================== */
         .rose-button {
             background-color: var(--rose-logo);
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -168,7 +203,23 @@
             box-shadow: 0 15px 30px rgba(212, 136, 140, 0.3);
         }
 
-        /* Cards de Serviço */
+        /* Botões hero — tamanho de fonte responsivo */
+        .hero-btn {
+            font-size: clamp(0.6rem, 1.5vw, 0.625rem);
+            letter-spacing: 0.18em;
+            padding: 1rem 2rem;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 640px) {
+            .hero-btn {
+                padding: 1.25rem 3.5rem;
+            }
+        }
+
+        /* =====================
+           CARDS DE SERVIÇO
+        ===================== */
         .card-service {
             background: #FFF;
             border-radius: 15px;
@@ -181,7 +232,20 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
         }
 
-        /* Imagem Sobre - Moldura Dinâmica */
+        /* Padding dos cards reduzido em mobile */
+        .card-inner {
+            padding: 2.5rem 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .card-inner {
+                padding: 3.5rem;
+            }
+        }
+
+        /* =====================
+           IMAGEM SOBRE — Moldura
+        ===================== */
         .profile-img-container {
             position: relative;
             width: 100%;
@@ -191,24 +255,88 @@
         .profile-img-container::before {
             content: '';
             position: absolute;
-            top: 30px;
-            left: 30px;
-            right: -20px;
-            bottom: -20px;
+            top: 20px;
+            left: 20px;
+            right: -12px;
+            bottom: -12px;
             border: 1px solid var(--rose-logo);
             z-index: 0;
             transition: all 0.8s ease;
         }
 
+        @media (min-width: 768px) {
+            .profile-img-container::before {
+                top: 30px;
+                left: 30px;
+                right: -20px;
+                bottom: -20px;
+            }
+        }
+
         .profile-img-container:hover::before {
-            top: 15px;
-            left: 15px;
-            right: -10px;
-            bottom: -10px;
+            top: 10px;
+            left: 10px;
+            right: -8px;
+            bottom: -8px;
         }
 
         section {
             overflow: hidden;
+        }
+
+        /* Header começa transparente */
+        #main-header {
+            background: transparent;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* Fundo escuro ao rolar */
+        #main-header.scrolled {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Menu mobile — fundo PRETO sólido, sem transparência */
+        #mobile-overlay {
+            background: #111111 !important;
+        }
+
+        /* =====================
+           SEÇÃO CONTATO — ajuste mobile
+        ===================== */
+        .contact-card {
+            padding: 2rem 1.5rem;
+            border-radius: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-card {
+                padding: 4rem 6rem;
+                border-radius: 3rem;
+            }
+        }
+
+        .contact-inner-card {
+            padding: 2rem 1.5rem;
+            border-radius: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-inner-card {
+                padding: 4rem 5rem;
+                border-radius: 2.5rem;
+            }
+        }
+
+        /* =====================
+           STATS — texto menor em mobile
+        ===================== */
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 4vw, 1.875rem);
+            color: #D4888C;
         }
     </style>
 </head>
@@ -216,10 +344,12 @@
 <body class="antialiased">
     <main>
 
-        <header class="fixed w-full z-50 transition-all duration-700" id="main-header">
-            <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
+        <!-- ===================== HEADER ===================== -->
+        <header class="fixed w-full z-50" id="main-header">
+            <nav class="container mx-auto px-5 py-5 flex justify-between items-center">
+
                 <div class="flex items-center" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="text-white font-bold tracking-tighter text-2xl serif">
+                    <div class="text-white font-bold tracking-tighter text-xl md:text-2xl serif">
                         BEATRIZ LEAL<span class="text-[#D4888C]">.</span>
                     </div>
                 </div>
@@ -232,10 +362,10 @@
                     <a href="#contato" class="hover:text-[#D4888C] transition-all duration-300">Contato</a>
                 </div>
 
-                <div class="flex items-center gap-4" data-aos="fade-left" data-aos-duration="1000">
+                <div class="flex items-center gap-3" data-aos="fade-left" data-aos-duration="1000">
                     <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
-                        class="rose-button text-white px-8 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hidden sm:block">Agendar</a>
-                    <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
+                        class="rose-button text-white px-6 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hidden sm:block">Agendar</a>
+                    <button id="menu-toggle" class="lg:hidden text-white focus:outline-none p-1">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -245,6 +375,7 @@
             </nav>
         </header>
 
+        <!-- Mobile Menu -->
         <div id="mobile-overlay"
             class="fixed inset-0 bg-black/98 z-[60] flex flex-col items-center justify-center space-y-10 text-white uppercase tracking-[0.5em] text-sm hidden">
             <button id="menu-close" class="absolute top-8 right-8 text-white">
@@ -257,196 +388,216 @@
             <a href="#servicos" class="nav-link hover:text-[#D4888C]">Procedimentos</a>
             <a href="#sobre" class="nav-link hover:text-[#D4888C]">Sobre</a>
             <a href="#contato" class="nav-link hover:text-[#D4888C]">Contato</a>
+            <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
+                class="rose-button text-white px-8 py-4 rounded-full text-[10px] uppercase tracking-widest font-bold mt-4">Agendar</a>
         </div>
 
+        <!-- ===================== HERO ===================== -->
         <section id="inicio" class="hero-container">
             <video autoplay muted loop playsinline preload="none" class="hero-media">
                 <source src="https://criarleal.github.io/bia-site/video.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos.
             </video>
 
             <div class="hero-overlay"></div>
 
-            <div class="hero-content max-w-5xl px-6">
+            <div class="hero-content" style="max-width: 900px; margin: 0 auto;">
                 <div data-aos="fade-up" data-aos-duration="1500">
+
+                    <!-- Badge -->
                     <span
-                        class="inline-block mb-8 px-6 py-2 border border-white/20 rounded-full text-[10px] uppercase tracking-[0.6em] backdrop-blur-md bg-white/5">Curitiba
-                        • PR</span>
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl mb-10 tracking-tight serif leading-[1.1]">
+                        class="hero-badge inline-block mb-6 px-5 py-2 border border-white/20 rounded-full uppercase tracking-[0.5em] backdrop-blur-md bg-white/5">
+                        Curitiba&nbsp;•&nbsp;PR
+                    </span>
+
+                    <!-- Título principal — clamp garante que nunca vaze -->
+                    <h1 class="hero-title mb-6">
                         Micropigmentação em Curitiba<br>
                         <span class="italic font-light">Arte e técnica para sobrancelhas naturalmente perfeitas</span>
                     </h1>
-                    <p
-                        class="text-lg md:text-xl mb-14 font-light tracking-widest opacity-80 max-w-2xl mx-auto leading-relaxed">
+
+                    <!-- Subtítulo -->
+                    <p class="hero-subtitle mb-10 font-light opacity-80 max-w-xl mx-auto">
                         Atendimento personalizado com técnicas modernas
-                        para realçar sua beleza de forma natural.</p>
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                        para realçar sua beleza de forma natural.
+                    </p>
+
+                    <!-- Botões: coluna no mobile, linha no sm+ -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <a href="#servicos"
-                            class="rose-button w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold shadow-2xl">Procedimentos</a>
+                            class="rose-button hero-btn w-full sm:w-auto rounded-full font-bold uppercase shadow-2xl text-white">
+                            Procedimentos
+                        </a>
                         <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
-                            class="bg-white/5 backdrop-blur-xl border border-white/20 hover:bg-white hover:text-black w-full sm:w-auto px-14 py-5 rounded-full text-[10px] uppercase tracking-widest font-bold transition-all duration-500">Atendimento
-                            VIP</a>
+                            class="hero-btn bg-white/5 backdrop-blur-xl border border-white/20 hover:bg-white hover:text-black w-full sm:w-auto rounded-full font-bold uppercase transition-all duration-500">
+                            Atendimento VIP
+                        </a>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <section class="py-32 bg-white text-center px-6">
+        <!-- ===================== FILOSOFIA ===================== -->
+        <section class="py-20 md:py-32 bg-white text-center px-6">
             <div class="container mx-auto max-w-4xl" data-aos="fade-up" data-aos-duration="1200">
-                <div class="mb-10 flex justify-center items-center gap-6">
-                    <div class="w-16 h-[1px] bg-[#D4888C]"></div>
-                    <span class="text-[#D4888C] uppercase tracking-[0.5em] text-[10px] font-bold">A Filosofia</span>
-                    <div class="w-16 h-[1px] bg-[#D4888C]"></div>
+
+                <div class="mb-8 flex justify-center items-center gap-5">
+                    <div class="w-12 md:w-16 h-[1px] bg-[#D4888C]"></div>
+                    <span class="text-[#D4888C] uppercase tracking-[0.4em] text-[10px] font-bold">A Filosofia</span>
+                    <div class="w-12 md:w-16 h-[1px] bg-[#D4888C]"></div>
                 </div>
-                <h2 class="text-4xl md:text-6xl mb-12 serif italic text-stone-800">Naturalidade acima de tudo</h2>
-                <p class="text-stone-600 leading-relaxed mb-12 text-2xl md:text-3xl serif italic font-light px-4">
+
+                <h2 class="text-3xl md:text-5xl lg:text-6xl mb-8 serif italic text-stone-800">
+                    Naturalidade acima de tudo
+                </h2>
+
+                <p
+                    class="text-stone-600 leading-relaxed mb-10 text-xl md:text-2xl lg:text-3xl serif italic font-light px-2">
                     Mais de 2.000 procedimentos realizados
                     com foco em expressão natural e realçar
                     a beleza com harmonia e precisão.
                 </p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-stone-100">
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-stone-100">
                     <div data-aos="zoom-in" data-aos-delay="100">
-                        <h4 class="text-3xl serif text-[#D4888C]">4x</h4>
+                        <h4 class="stat-number">4x</h4>
                         <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Premiada</p>
                     </div>
                     <div data-aos="zoom-in" data-aos-delay="200">
-                        <h4 class="text-3xl serif text-[#D4888C]">Int.</h4>
+                        <h4 class="stat-number">Int.</h4>
                         <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Certificação</p>
                     </div>
                     <div data-aos="zoom-in" data-aos-delay="300">
-                        <h4 class="text-3xl serif text-[#D4888C]">+2k</h4>
+                        <h4 class="stat-number">+2k</h4>
                         <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Atendimentos</p>
                     </div>
                     <div data-aos="zoom-in" data-aos-delay="400">
-                        <h4 class="text-3xl serif text-[#D4888C]">Luxo</h4>
+                        <h4 class="stat-number">Luxo</h4>
                         <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Experiência</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="servicos" class="py-32 bg-[#F2EDE9] px-6">
+        <!-- ===================== SERVIÇOS ===================== -->
+        <section id="servicos" class="py-20 md:py-32 bg-[#F2EDE9] px-6">
             <div class="container mx-auto">
-                <div class="text-center mb-20" data-aos="fade-down">
-                    <h2 class="text-5xl serif tracking-tight text-stone-800">Procedimentos Especializados</h2>
+
+                <div class="text-center mb-12 md:mb-20" data-aos="fade-down">
+                    <h2 class="text-3xl md:text-5xl serif tracking-tight text-stone-800">Procedimentos Especializados
+                    </h2>
                     <p class="text-stone-400 text-[11px] mt-4 font-light tracking-[0.4em] uppercase">Especialidades
-                        Beatriz
-                        Leal</p>
+                        Beatriz Leal</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="card-service card-inner shadow-sm" data-aos="fade-up" data-aos-delay="100">
                         <div
-                            class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
-                            <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            class="w-12 h-12 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-8 transition-transform duration-500 hover:rotate-[360deg]">
+                            <svg class="w-6 h-6 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path
                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Micropigmentação</h3>
-                        <ul class="text-stone-500 space-y-5 text-sm font-light">
-                            <li class="flex items-center gap-4"><span
-                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                                Nanoblading Flow</li>
-                            <li class="flex items-center gap-4"><span
-                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                                Shadow Line Premium</li>
-                            <li class="flex items-center gap-4"><span
-                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                                Neutralização</li>
+                        <h3 class="text-xl md:text-2xl mb-6 serif text-stone-800 tracking-wide">Micropigmentação</h3>
+                        <ul class="text-stone-500 space-y-4 text-sm font-light">
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full flex-shrink-0"></span>Nanoblading Flow
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full flex-shrink-0"></span>Shadow Line
+                                Premium</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full flex-shrink-0"></span>Neutralização
+                            </li>
                         </ul>
                     </div>
 
-                    <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-service card-inner shadow-sm" data-aos="fade-up" data-aos-delay="200">
                         <div
-                            class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
-                            <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            class="w-12 h-12 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-8 transition-transform duration-500 hover:rotate-[360deg]">
+                            <svg class="w-6 h-6 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Olhar & Design</h3>
-                        <ul class="text-stone-500 space-y-5 text-sm font-light">
-                            <li class="flex items-center gap-4"><span
-                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                                Lash Lifting Master</li>
-                            <li class="flex items-center gap-4"><span
-                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                                Brow Lamination</li>
-                            <li class="flex items-center gap-4"><span
-                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                                Design Estratégico</li>
+                        <h3 class="text-xl md:text-2xl mb-6 serif text-stone-800 tracking-wide">Olhar & Design</h3>
+                        <ul class="text-stone-500 space-y-4 text-sm font-light">
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full flex-shrink-0"></span>Lash Lifting
+                                Master</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full flex-shrink-0"></span>Brow Lamination
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full flex-shrink-0"></span>Design
+                                Estratégico</li>
                         </ul>
                     </div>
 
-                    <div class="card-service p-14 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-service card-inner shadow-sm" data-aos="fade-up" data-aos-delay="300">
                         <div
-                            class="w-14 h-14 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-10 transition-transform duration-500 hover:rotate-[360deg]">
-                            <svg class="w-7 h-7 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            class="w-12 h-12 bg-[#F9F7F2] rounded-full flex items-center justify-center mb-8 transition-transform duration-500 hover:rotate-[360deg]">
+                            <svg class="w-6 h-6 text-[#D4888C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl mb-8 serif text-stone-800 tracking-wide">Estética Labial</h3>
-                        <ul class="text-stone-500 space-y-5 text-sm font-light">
-                            <li class="flex items-center gap-4"><span
-                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                                Hydra Gloss VIP</li>
-                            <li class="flex items-center gap-4"><span
-                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                                Revitalização Labial</li>
-                            <li class="flex items-center gap-4"><span
-                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full"></span>
-                                Neutralização Labial</li>
+                        <h3 class="text-xl md:text-2xl mb-6 serif text-stone-800 tracking-wide">Estética Labial</h3>
+                        <ul class="text-stone-500 space-y-4 text-sm font-light">
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full flex-shrink-0"></span>Hydra Gloss VIP
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full flex-shrink-0"></span>Revitalização
+                                Labial</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 bg-[#D4888C] rounded-full flex-shrink-0"></span>Neutralização
+                                Labial</li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <section id="sobre" class="py-32 bg-white px-6">
+        <!-- ===================== SOBRE ===================== -->
+        <section id="sobre" class="py-20 md:py-32 bg-white px-6">
             <div class="container mx-auto">
-                <div class="flex flex-col lg:flex-row items-center gap-20">
+                <div class="flex flex-col lg:flex-row items-center gap-14 md:gap-20">
+
                     <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-right">
-                        <div class="profile-img-container">
-                            <img loading="lazy"
-                                src="https://criarleal.github.io/bia-site/beatriz-leal.jpg"
+                        <!-- Margem extra para a moldura não cortar em mobile -->
+                        <div class="profile-img-container" style="margin-right: 12px; margin-bottom: 12px;">
+                            <img loading="lazy" src="https://criarleal.github.io/bia-site/beatriz-leal.jpg"
                                 alt="Beatriz Leal especialista em micropigmentação e design de sobrancelhas em Curitiba"
                                 class="relative z-10 w-full rounded shadow-2xl overflow-hidden grayscale-[20%] hover:grayscale-0 transition-all duration-1000">
                         </div>
                     </div>
 
                     <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-left">
-
-                        <h2 class="text-3xl md:text-5xl mb-8 serif tracking-tight text-stone-800">
+                        <h2 class="text-2xl md:text-4xl lg:text-5xl mb-6 serif tracking-tight text-stone-800">
                             Beatriz Leal
                         </h2>
-
-                        <div class="space-y-6 text-stone-600 leading-relaxed font-light text-lg max-w-xl">
-                            <p>
-                                Especialista em micropigmentação e estética do olhar.
-                            </p>
-
-                            <p>
-                                Com anos de experiência e formação contínua nas principais técnicas da área, meu
-                                trabalho é focado em realçar a
-                                beleza natural de cada cliente com resultados elegantes e harmônicos.
-                            </p>
-
-                            <p>
-                                Além do meu atendimento exclusivo em Curitiba eu também formo profissionais
-                                através da minha academia,
-                                compartilhando conhecimento e elevando o padrão da micropigmentação no mercado.
-                            </p>
+                        <div
+                            class="space-y-5 text-stone-600 leading-relaxed font-light text-base md:text-lg max-w-xl mx-auto lg:mx-0">
+                            <p>Especialista em micropigmentação e estética do olhar.</p>
+                            <p>Com anos de experiência e formação contínua nas principais técnicas da área, meu trabalho
+                                é focado em realçar a beleza natural de cada cliente com resultados elegantes e
+                                harmônicos.</p>
+                            <p>Além do meu atendimento exclusivo em Curitiba eu também formo profissionais através da
+                                minha academia, compartilhando conhecimento e elevando o padrão da micropigmentação no
+                                mercado.</p>
                         </div>
 
-                        <div class="flex justify-center lg:justify-start mt-12">
+                        <div class="flex justify-center lg:justify-start mt-10">
                             <a href="https://www.instagram.com/bialeal.beauty/" target="_blank"
-                                class="inline-flex items-center gap-5 text-xs font-bold uppercase tracking-[0.3em] text-stone-800 group border border-stone-100 pr-10 rounded-full hover:bg-stone-50 transition-all duration-500">
+                                class="inline-flex items-center gap-4 text-xs font-bold uppercase tracking-[0.3em] text-stone-800 group border border-stone-100 pr-8 rounded-full hover:bg-stone-50 transition-all duration-500">
                                 <span
-                                    class="bg-[#D4888C] text-white p-5 rounded-full group-hover:bg-[#bc767a] transition-all shadow-xl">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    class="bg-[#D4888C] text-white p-4 rounded-full group-hover:bg-[#bc767a] transition-all shadow-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -457,22 +608,27 @@
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <section id="contato" class="py-32 bg-stone-900 text-white px-6">
+        <!-- ===================== CONTATO ===================== -->
+        <section id="contato" class="py-20 md:py-32 bg-stone-900 text-white px-4 md:px-6">
             <div class="container mx-auto">
-                <div class="max-w-6xl mx-auto bg-white/5 rounded-[50px] p-10 md:p-24 flex flex-col lg:flex-row gap-20 items-center border border-white/10"
+                <div class="max-w-6xl mx-auto contact-card bg-white/5 flex flex-col lg:flex-row gap-12 items-center border border-white/10"
                     data-aos="zoom-in-up">
+
                     <div class="w-full lg:w-1/2 text-center lg:text-left">
-                        <h2 class="text-4xl md:text-6xl serif mb-12 tracking-tight">Agende sua<br><span
-                                class="italic font-light opacity-60">avaliação personalizada</span></h2>
-                        <div class="space-y-10">
-                            <div class="flex items-center gap-6 justify-center lg:justify-start group">
+                        <h2 class="text-3xl md:text-5xl lg:text-6xl serif mb-8 tracking-tight leading-tight">
+                            Agende sua<br>
+                            <span class="italic font-light opacity-60">avaliação personalizada</span>
+                        </h2>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-5 justify-center lg:justify-start group">
                                 <div
-                                    class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-[#D4888C] group-hover:bg-[#D4888C] group-hover:text-white transition-all">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    class="w-10 h-10 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-[#D4888C] group-hover:bg-[#D4888C] group-hover:text-white transition-all">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                         <circle cx="12" cy="10" r="3" />
@@ -484,27 +640,30 @@
                         </div>
                     </div>
 
-                    <div
-                        class="w-full lg:w-1/2 bg-white rounded-[40px] p-12 md:p-20 text-center shadow-3xl text-stone-800 relative">
-                        <h3 class="text-3xl serif mb-6">Seu atendimento exclusivo começa aqui</h3>
-                        <p class="text-stone-500 mb-12 text-base font-light">em Curitiba,
-                            com horários limitados para garantir
-                            a melhor experiência.</p>
+                    <div class="w-full lg:w-1/2 bg-white contact-inner-card text-center shadow-3xl text-stone-800">
+                        <h3 class="text-2xl md:text-3xl serif mb-4">Seu atendimento exclusivo começa aqui</h3>
+                        <p class="text-stone-500 mb-8 text-sm md:text-base font-light">
+                            Em Curitiba, com horários limitados para garantir a melhor experiência.
+                        </p>
                         <a href="https://api.whatsapp.com/message/277Q2Y5TMN2MD1" target="_blank"
-                            class="rose-button block w-full py-6 rounded-full font-bold uppercase tracking-[0.3em] text-[11px] text-white">Agendar
-                            agora</a>
+                            class="rose-button block w-full py-5 rounded-full font-bold uppercase tracking-[0.3em] text-[11px] text-white">
+                            Agendar agora
+                        </a>
                     </div>
+
                 </div>
             </div>
         </section>
+
     </main>
 
-    <footer class="py-24 bg-[#F9F7F2] text-center px-6">
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="py-16 md:py-24 bg-[#F9F7F2] text-center px-6">
         <div class="container mx-auto" data-aos="fade-up">
-            <div class="text-3xl serif mb-12 text-stone-800 tracking-tighter">BEATRIZ LEAL</div>
-            <p class="text-[10px] text-stone-400 uppercase tracking-[0.6em] mb-12">Micropigmentação • Estética do Olhar
-                • Beleza Natural</p>
-            <div class="w-20 h-[1px] bg-stone-200 mx-auto mb-12"></div>
+            <div class="text-2xl md:text-3xl serif mb-8 text-stone-800 tracking-tighter">BEATRIZ LEAL</div>
+            <p class="text-[10px] text-stone-400 uppercase tracking-[0.5em] mb-8">Micropigmentação • Estética do Olhar •
+                Beleza Natural</p>
+            <div class="w-16 h-[1px] bg-stone-200 mx-auto mb-8"></div>
             <p class="text-[9px] text-stone-300 uppercase tracking-[0.4em]">© 2026 Todos os Direitos Reservados</p>
         </div>
     </footer>
@@ -512,7 +671,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            offset: 120,
+            offset: 80,
             delay: 50,
             duration: 1000,
             easing: 'ease-in-out-cubic',
@@ -524,17 +683,17 @@
             document.body.classList.add('loaded');
         });
 
+        // Header scroll
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
-                header.classList.add('bg-[#1A1A1A]/95', 'backdrop-blur-xl', 'py-4', 'shadow-2xl');
-                header.classList.remove('py-6');
+                header.classList.add('scrolled');
             } else {
-                header.classList.remove('bg-[#1A1A1A]/95', 'backdrop-blur-xl', 'py-4', 'shadow-2xl');
-                header.classList.add('py-6');
+                header.classList.remove('scrolled');
             }
         });
 
+        // Mobile menu
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
         const overlay = document.getElementById('mobile-overlay');
@@ -552,6 +711,3 @@
 </body>
 
 </html>
-
-
-
